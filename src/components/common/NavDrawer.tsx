@@ -6,7 +6,7 @@ import { MenuIcon } from '@heroicons/react/outline';
 import Drawer from './Drawer';
 
 import type * as React from 'react';
-import * as types from 'types';
+import type * as types from 'types';
 
 const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
             <div>
               {navLinks?.map((link, index) => (
                 <Link key={index} href={link.url} passHref>
-                  <a className={`block py-2 px-4 my-1 rounded-md ${getActiveClass(link.url)}`}>{link.label}</a>
+                  <a className={`block py-2 px-4 my-1 rounded ${getActiveClass(link.url)}`}>{link.label}</a>
                 </Link>
               ))}
             </div>
@@ -69,7 +69,7 @@ const renderTitle = ({
           />
         </a>
       ) : (
-        <a className="block py-2 px-4 rounded-md text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
+        <a className="block py-2 px-4 rounded text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
           <h1>{title}</h1>
         </a>
       )}
