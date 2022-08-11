@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Nav from './Nav';
 import NavDrawer from './NavDrawer';
 
@@ -7,7 +8,14 @@ import * as types from 'types';
 
 const Header: React.FC = () => {
   const headerConfig: types.HeaderConfig = {
-    title: 'DevFest Cebu 2022',
+    title: 'GDG Cebu Event Name',
+    titleImage: {
+      url: '/images/default-logo.png',
+      alt: 'GDG Cebu Event Name',
+      width: 374,
+      height: 127,
+    },
+    titleImageHeight: 64,
     showTitle: true,
     navLinks: [
       {
@@ -36,15 +44,38 @@ const Header: React.FC = () => {
   );
 };
 
-const renderTitle = ({ title, showTitle }: types.HeaderConfig): React.ReactNode => {
+const renderTitle = ({
+  title,
+  titleImage,
+  titleImageHeight = 64,
+  showTitle = true,
+}: types.HeaderConfig): React.ReactNode => {
   if (!showTitle) {
     return null;
   }
   return (
     <Link href="/" passHref>
-      <a className="inline-block py-2 px-4 -ml-4 rounded-md text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
-        <h1>{title}</h1>
-      </a>
+      {titleImage ? (
+        <a
+          className="inline-block relative"
+          style={{
+            aspectRatio: `${titleImage.width || 16} / ${titleImage.height || 9}`,
+            height: `${titleImageHeight}px`,
+          }}
+        >
+          <Image
+            src={titleImage.url}
+            alt={titleImage.alt}
+            layout="fill"
+            objectFit="contain"
+            objectPosition="left center"
+          />
+        </a>
+      ) : (
+        <a className="inline-block py-2 px-4 -ml-4 rounded-md text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
+          <h1>{title}</h1>
+        </a>
+      )}
     </Link>
   );
 };
