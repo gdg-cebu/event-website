@@ -99,7 +99,11 @@ const renderCta = ({ cta }: types.EventInfoSection): React.ReactNode => {
   if (!cta) {
     return null;
   }
-  return <Button className="mt-5">{cta.label}</Button>;
+  return (
+    <Button className="mt-5" href={cta.url}>
+      {cta.label}
+    </Button>
+  );
 };
 
 const renderBanner = ({ banner }: types.EventInfoSection): React.ReactNode => {
