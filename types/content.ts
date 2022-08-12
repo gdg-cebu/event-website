@@ -44,3 +44,13 @@ export interface StatsSection {
   content?: string;
   stats?: Stats[];
 }
+
+export enum SpacerSize {
+  SMALL = 'sm',
+  MEDIUM = 'md',
+  LARGE = 'lg',
+}
+
+export interface SpacerSection {
+  size?: SpacerSize;
+}

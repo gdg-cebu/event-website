@@ -1,3 +1,4 @@
+import * as React from 'react';
 import MarkdownToJsx from 'markdown-to-jsx';
 import styles from './Markdown.module.css';
 
