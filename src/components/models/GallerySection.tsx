@@ -30,7 +30,7 @@ const GallerySection: React.FC = () => {
 
 const renderContent = ({ title, description, cta }: types.GallerySection): React.ReactNode => {
   return (
-    <div className={`flex flex-col items-start p-12 ${styles.content}`}>
+    <div className={`flex flex-col items-start py-12 px-6 md:px-12 -mx-1 md:mx-0 ${styles.content}`}>
       <h2 className="mb-4 text-xl md:text-2xl font-bold">{title}</h2>
       {description && <p className="mb-4 text-base md:text-lg">{description}</p>}
       {cta && (
@@ -52,7 +52,6 @@ const renderImages = ({ images }: types.GallerySection): React.ReactNode => {
       </>
     );
   }
-  console.log(images);
   return (
     <>
       {images.map((image, index) => (
