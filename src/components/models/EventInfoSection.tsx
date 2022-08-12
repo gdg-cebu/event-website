@@ -47,7 +47,7 @@ const EventInfoSection: React.FC = () => {
   return (
     <section className="py-8 px-6 md:py-20">
       <div className={`xl:container mx-auto flex items-center flex-wrap ${containerClass}`}>
-        <div className={`md:py-12 flex-grow ${detailsClass}`}>
+        <div className={`md:pb-12 lg:pt-12 flex-grow ${detailsClass}`}>
           {renderLogo(data)}
           {renderDescription(data)}
           {renderDetails(data)}

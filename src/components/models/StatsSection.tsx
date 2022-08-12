@@ -50,7 +50,7 @@ const renderStats = ({ stats }: types.StatsSection): React.ReactNode => {
     return null;
   }
   return (
-    <div className="flex flex-wrap flex-grow mt-10 lg:mt-0">
+    <div className="flex flex-wrap flex-grow mt-10 lg:mt-0 -mb-8">
       {stats.map((stat, index) => (
         <div key={index} className="mr-20 lg:mr-8 mb-8 lg:w-52">
           <p className="text-4xl md:text-5xl">{stat.value}</p>
