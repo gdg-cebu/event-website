@@ -54,3 +54,10 @@ export enum SpacerSize {
 export interface SpacerSection {
   size?: SpacerSize;
 }
+
+export interface GallerySection {
+  images: Image[];
+  title: string;
+  description?: string;
+  cta?: Link;
+}
