@@ -34,3 +34,13 @@ export interface EventInfoSection {
   cta?: Link;
   banner?: Image;
 }
+
+export interface Stats {
+  label: string;
+  value: string;
+}
+
+export interface StatsSection {
+  content?: string;
+  stats?: Stats[];
+}

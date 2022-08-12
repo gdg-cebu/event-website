@@ -81,7 +81,7 @@ const renderTitle = ({
 };
 
 const renderNav = ({ navLinks }: types.HeaderConfig): React.ReactNode => {
-  if (!navLinks || navLinks.length == 0) {
+  if (!navLinks || navLinks.length === 0) {
     return null;
   }
   return (

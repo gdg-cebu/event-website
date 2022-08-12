@@ -45,7 +45,7 @@ const EventInfoSection: React.FC = () => {
   const detailsClass = hasBanner ? 'pb-8 md:max-w-lg text-left' : 'md:max-w-2xl text-center';
 
   return (
-    <section className="py-8 px-6 md:py-16">
+    <section className="py-8 px-6 md:py-20">
       <div className={`xl:container mx-auto flex items-center flex-wrap ${containerClass}`}>
         <div className={`md:py-12 flex-grow ${detailsClass}`}>
           {renderLogo(data)}
