@@ -45,7 +45,7 @@ const EventInfoSection: React.FC = () => {
   const detailsClass = hasBanner ? 'pb-8 md:max-w-lg text-left' : 'md:max-w-2xl text-center';
 
   return (
-    <section className="py-8 px-6 md:py-10">
+    <section className="py-8 px-6 md:py-16">
       <div className={`xl:container mx-auto flex items-center flex-wrap ${containerClass}`}>
         <div className={`md:py-12 flex-grow ${detailsClass}`}>
           {renderLogo(data)}
@@ -100,7 +100,7 @@ const renderCta = ({ cta }: types.EventInfoSection): React.ReactNode => {
     return null;
   }
   return (
-    <Button className="mt-5" href={cta.url}>
+    <Button className="mt-5" href={cta.url} variant="primary">
       {cta.label}
     </Button>
   );
