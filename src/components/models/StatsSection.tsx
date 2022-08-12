@@ -42,7 +42,7 @@ const renderContent = ({ content }: types.StatsSection): React.ReactNode => {
   if (!content) {
     return null;
   }
-  return <Markdown content={content} className="lg:max-w-2xl lg:mr-32" />;
+  return <Markdown content={content} className="lg:max-w-2xl lg:mr-32 2xl:mr-52" />;
 };
 
 const renderStats = ({ stats }: types.StatsSection): React.ReactNode => {
