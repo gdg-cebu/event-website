@@ -78,3 +78,9 @@ export interface PartnersSection {
   title: string;
   groups: PartnersGroup[];
 }
+
+export interface SocialSection {
+  content: string;
+  links: Link[];
+  image?: Image;
+}
