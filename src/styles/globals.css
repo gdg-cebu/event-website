@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 body {
+  @apply min-h-screen;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#__next {
+  @apply min-h-screen flex flex-col;
 }

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="py-10 px-6 bg-gray-100">
+    <footer className="py-10 px-6 mt-auto bg-gray-100">
       <div className="xl:container mx-auto">
         <div className="flex flex-wrap items-center -mx-4 -my-2">
           {renderLogo(footer)}
