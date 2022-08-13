@@ -1,9 +1,9 @@
 import Header from '../components/common/Header';
-import EventInfoSection from '../components/models/EventInfoSection';
-import StatsSection from '../components/models/StatsSection';
-import SpacerSection from '../components/models/SpacerSection';
-import GallerySection from '../components/models/GallerySection';
-import PartnersSection from '../components/models/PartnersSection';
+import EventInfoSection from '../components/sections/EventInfoSection';
+import StatsSection from '../components/sections/StatsSection';
+import SpacerSection from '../components/sections/SpacerSection';
+import GallerySection from '../components/sections/GallerySection';
+import PartnersSection from '../components/sections/PartnersSection';
 
 import type { NextPage } from 'next';
 
