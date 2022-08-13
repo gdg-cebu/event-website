@@ -54,6 +54,7 @@ export enum SpacerSize {
   SMALL = 'sm',
   MEDIUM = 'md',
   LARGE = 'lg',
+  FLEX = 'flex',
 }
 
 export interface SpacerSection {

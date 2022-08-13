@@ -21,7 +21,7 @@ const EventPageLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, t
   };
 
   return (
-    <div>
+    <>
       <header className="pt-8 px-6 md:pt-20">
         <div className="xl:container mx-auto">
           {showLogo && renderLogo(eventConfig.logo)}
@@ -31,7 +31,7 @@ const EventPageLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, t
       </header>
 
       {children}
-    </div>
+    </>
   );
 };
 
