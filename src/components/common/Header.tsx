@@ -24,11 +24,11 @@ const Header: React.FC = () => {
       },
       {
         label: 'Speakers',
-        url: '/speakers/',
+        url: '/speakers',
       },
       {
         label: 'Schedule',
-        url: '/schedule/',
+        url: '/schedule',
       },
     ],
   };
