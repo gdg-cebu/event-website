@@ -26,6 +26,11 @@ export interface HeaderConfig {
   navLinks?: Link[];
 }
 
+export interface FooterConfig {
+  copyright?: string;
+  logo?: Image;
+}
+
 export interface EventInfoSection {
   logo?: Image;
   description?: string;
