@@ -40,9 +40,9 @@ const renderPartnerGroups = ({ groups }: types.PartnersSection): React.ReactNode
   return (
     <>
       {groups.map((group, index) => (
-        <div key={index} className="my-6">
-          <h2 className="mb-4 text-xl">{group.title}</h2>
-          <div className="flex flex-wrap items-center">{group.partners.map(renderPartner)}</div>
+        <div key={index} className="mt-10">
+          <h2 className="mb-8 text-lg md:text-xl">{group.title}</h2>
+          <div className="flex flex-wrap items-center -my-3">{group.partners.map(renderPartner)}</div>
         </div>
       ))}
     </>
@@ -50,12 +50,12 @@ const renderPartnerGroups = ({ groups }: types.PartnersSection): React.ReactNode
 };
 
 const renderPartner = (partner: types.Partner, index: number): React.ReactNode => {
-  const { name, url, logo, height = 100 } = partner;
+  const { name, url, logo, height = 60 } = partner;
   const aspectRatio = `${logo?.width || 16} / ${logo?.height || 9}`;
 
   const wrapContent = (content: React.ReactNode): React.ReactNode => {
     const props = {
-      className: 'p-6',
+      className: 'my-3 mx-6',
       style: { height: `${height}px`, aspectRatio },
     };
     if (url) {
