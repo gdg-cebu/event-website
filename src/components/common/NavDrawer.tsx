@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MenuIcon } from '@heroicons/react/outline';
+import { Menu as MenuIcon } from 'react-feather';
 import Drawer from './Drawer';
 
 import type * as React from 'react';

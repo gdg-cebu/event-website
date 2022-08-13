@@ -1,4 +1,4 @@
-import { XIcon } from '@heroicons/react/outline';
+import { X as XIcon } from 'react-feather';
 
 import type * as React from 'react';
 
