@@ -61,3 +61,20 @@ export interface GallerySection {
   description?: string;
   cta?: Link;
 }
+
+export interface Partner {
+  name: string;
+  url?: string;
+  logo?: Image;
+  height?: number;
+}
+
+export interface PartnersGroup {
+  title: string;
+  partners: Partner[];
+}
+
+export interface PartnersSection {
+  title: string;
+  groups: PartnersGroup[];
+}
