@@ -1,5 +1,3 @@
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
 import EventInfoSection from '../components/sections/EventInfoSection';
 import StatsSection from '../components/sections/StatsSection';
 import SpacerSection from '../components/sections/SpacerSection';
@@ -13,7 +11,6 @@ import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
     <>
-      <Header />
       <EventInfoSection />
       <StatsSection />
       <SpacerSection />
@@ -23,7 +20,6 @@ const Home: NextPage = () => {
       <SpacerSection />
       <DividerSection />
       <SocialSection />
-      <Footer />
     </>
   );
 };
