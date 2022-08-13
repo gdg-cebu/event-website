@@ -89,3 +89,15 @@ export interface SocialSection {
   links: Link[];
   image?: Image;
 }
+
+export interface Speaker {
+  name: string;
+  designation?: string;
+  company?: string;
+  bio?: string;
+  image?: Image;
+}
+
+export interface SpeakersSection {
+  speakers: Speaker[];
+}
