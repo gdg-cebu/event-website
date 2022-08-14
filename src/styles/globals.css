@@ -11,3 +11,13 @@ body {
 #__next {
   @apply min-h-screen flex flex-col;
 }
+
+/* OVERRIDES */
+
+#nprogress .bar {
+  @apply bg-blue-800;
+}
+
+#nprogress .peg {
+  @apply hidden;
+}
