@@ -102,3 +102,21 @@ export interface Speaker {
 export interface SpeakersSection {
   speakers: Speaker[];
 }
+
+export interface Session {
+  title: string;
+  startTime: Date;
+  endTime: Date;
+  speakers?: Speaker[];
+  spanAllTracks?: boolean;
+}
+
+export interface ScheduleTrack {
+  title: string;
+  details?: string;
+  sessions: Session[];
+}
+
+export interface ScheduleSection {
+  tracks: ScheduleTrack[];
+}
