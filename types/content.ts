@@ -127,3 +127,10 @@ export interface ScheduleSection extends Section {
 export interface HomePage {
   sections: Section[];
 }
+
+export interface EventPage {
+  title: string;
+  subtitle?: string;
+  showLogo?: boolean;
+  sections: Section[];
+}

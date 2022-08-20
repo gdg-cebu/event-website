@@ -3,9 +3,12 @@ import Image from 'next/image';
 import type * as React from 'react';
 import type * as types from 'types';
 
-type Props = { title: string; subtitle?: string; showLogo?: boolean };
-
-const EventPageLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, title, subtitle, showLogo = false }) => {
+const EventPageLayout: React.FC<React.PropsWithChildren<types.EventPage>> = ({
+  children,
+  title,
+  subtitle,
+  showLogo = false,
+}) => {
   const eventConfig: types.EventConfig = {
     name: 'Event Name',
     description:

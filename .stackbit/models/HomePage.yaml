@@ -1,7 +1,10 @@
 type: page
 name: HomePage
 label: Home Page
+layout: HomePageLayout
 hideContent: true
+urlPath: '/'
+filePath: 'index.md'
 fields:
   - type: list
     name: sections

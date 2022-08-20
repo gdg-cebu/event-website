@@ -15,5 +15,4 @@ contentModels:
   HomePage:
     isPage: true
     singleInstance: true
-    urlPath: '/'
     file: 'index.md'
