@@ -11,3 +11,9 @@ assets:
   staticDir: public
   uploadDir: images
   publicPath: /
+contentModels:
+  HomePage:
+    isPage: true
+    singleInstance: true
+    urlPath: '/'
+    file: 'index.md'

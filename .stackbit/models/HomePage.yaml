@@ -1,0 +1,12 @@
+type: page
+name: HomePage
+label: Home Page
+hideContent: true
+fields:
+  - type: list
+    name: sections
+    label: Sections
+    items:
+      type: model
+      models:
+        - SpacerSection

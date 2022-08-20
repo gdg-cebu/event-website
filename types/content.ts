@@ -1,3 +1,6 @@
+/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
+interface Section {}
+
 export interface Image {
   url: string;
   alt?: string;
@@ -31,7 +34,7 @@ export interface FooterConfig {
   logo?: Image;
 }
 
-export interface EventInfoSection {
+export interface EventInfoSection extends Section {
   logo?: Image;
   description?: string;
   date?: Date;
@@ -45,7 +48,7 @@ export interface Stats {
   value: string;
 }
 
-export interface StatsSection {
+export interface StatsSection extends Section {
   content?: string;
   stats?: Stats[];
 }
@@ -57,11 +60,11 @@ export enum SpacerSize {
   FLEX = 'flex',
 }
 
-export interface SpacerSection {
+export interface SpacerSection extends Section {
   size?: SpacerSize;
 }
 
-export interface GallerySection {
+export interface GallerySection extends Section {
   images: Image[];
   title: string;
   description?: string;
@@ -80,12 +83,12 @@ export interface PartnersGroup {
   partners: Partner[];
 }
 
-export interface PartnersSection {
+export interface PartnersSection extends Section {
   title: string;
   groups: PartnersGroup[];
 }
 
-export interface SocialSection {
+export interface SocialSection extends Section {
   content: string;
   links: Link[];
   image?: Image;
@@ -99,7 +102,7 @@ export interface Speaker {
   image?: Image;
 }
 
-export interface SpeakersSection {
+export interface SpeakersSection extends Section {
   speakers: Speaker[];
 }
 
@@ -117,6 +120,10 @@ export interface ScheduleTrack {
   sessions: Session[];
 }
 
-export interface ScheduleSection {
+export interface ScheduleSection extends Section {
   tracks: ScheduleTrack[];
+}
+
+export interface HomePage {
+  sections: Section[];
 }
