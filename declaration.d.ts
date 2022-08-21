@@ -10,3 +10,5 @@ declare module 'sourcebit-target-next' {
 
   export const sourcebitDataClient: SourcebitDataClient;
 }
+
+declare module 'sourcebit-target-next/with-remote-data-updates';

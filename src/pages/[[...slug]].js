@@ -1,4 +1,5 @@
 import { sourcebitDataClient } from 'sourcebit-target-next';
+import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 import { getComponent } from '../components/registry';
 import { resolveStaticProps, slugToUrlPath } from '../utils/stackbit';
 
@@ -10,7 +11,7 @@ const DynamicPage = ({ page }) => {
   return <PageComponent {...page.frontmatter} />;
 };
 
-export default DynamicPage;
+export default withRemoteDataUpdates(DynamicPage);
 
 export async function getStaticPaths() {
   const data = await sourcebitDataClient.getData();

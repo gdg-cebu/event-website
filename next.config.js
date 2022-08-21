@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const sourcebit = require('sourcebit');
-const sourcebitConfig = require('./sourcebit');
-
-sourcebit.fetch(sourcebitConfig);
+const withSourcebit = require('sourcebit').sourcebitNext();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,4 +7,4 @@ const nextConfig = {
   swcMinify: true,
 };
 
-module.exports = nextConfig;
+module.exports = withSourcebit(nextConfig);
