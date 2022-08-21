@@ -34,6 +34,11 @@ export interface FooterConfig {
   logo?: Image;
 }
 
+export interface SiteConfig {
+  header?: HeaderConfig;
+  footer?: FooterConfig;
+}
+
 export interface EventInfoSection extends Section {
   logo?: Image;
   description?: string;

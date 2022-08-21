@@ -16,3 +16,9 @@ contentModels:
     isPage: true
     singleInstance: true
     file: 'index.md'
+  EventConfig:
+    singleInstance: true
+    file: 'event.json'
+  SiteConfig:
+    singleInstance: true
+    file: 'site.json'

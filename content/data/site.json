@@ -1,0 +1,31 @@
+{
+  "header": {
+    "type": "HeaderConfig",
+    "title": "Event Name 2022",
+    "titleImage": null,
+    "titleImageHeight": 64,
+    "showTitle": true,
+    "navLinks": [
+      {
+        "type": "Link",
+        "label": "Home",
+        "url": "/"
+      },
+      {
+        "type": "Link",
+        "label": "Speakers",
+        "url": "/speakers"
+      },
+      {
+        "type": "Link",
+        "label": "Schedule",
+        "url": "/schedule"
+      }
+    ]
+  },
+  "footer": {
+    "type": "FooterConfig",
+    "copyright": "Copyright © 2022. All rights reserved.",
+    "logo": null
+  }
+}
