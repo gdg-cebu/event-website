@@ -4,28 +4,7 @@ import Link from 'next/link';
 import type * as React from 'react';
 import type * as types from 'types';
 
-const PartnersSection: React.FC = () => {
-  const section: types.PartnersSection = {
-    title: 'Partners',
-    groups: [
-      {
-        title: 'General partner',
-        partners: [
-          {
-            name: 'Google',
-            logo: {
-              url: '/images/google-logo.svg',
-              alt: 'Google',
-              width: 600,
-              height: 300,
-            },
-            url: 'https://google.com',
-          },
-        ],
-      },
-    ],
-  };
-
+const PartnersSection: React.FC<types.PartnersSection> = (section) => {
   return (
     <section className="py-8 px-6 md:py-20">
       <div className="xl:container mx-auto">

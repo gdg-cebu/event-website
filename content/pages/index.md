@@ -47,4 +47,20 @@ sections:
       label: See all photos
       url: /
     images: []
+  - type: PartnersSection
+    title: Partners
+    groups:
+      - type: PartnersGroup
+        title: General partner
+        partners:
+          - type: Partner
+            name: Google
+            url: 'https://google.com/'
+            logo:
+              type: Image
+              alt: Google logo
+              width: 600
+              height: 300
+              url: /images/google-logo.svg
+            height: 60
 ---
