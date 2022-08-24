@@ -3,31 +3,7 @@ import Markdown from '../common/Markdown';
 import type * as React from 'react';
 import type * as types from 'types';
 
-const StatsSection: React.FC = () => {
-  const section = {
-    content: `
-# What you need to know, before you ask
-
-This event brings together experts in Machine Learning, Android, Web and Cloud technologies to a day full of sessions, workshops and showcases.
-
-Our team creates this event to be the best place for experience sharing in a phenomenal atmosphere.
-    `,
-    stats: [
-      {
-        label: 'Attendees',
-        value: '500',
-      },
-      {
-        label: 'Day',
-        value: '1',
-      },
-      {
-        label: 'Sessions',
-        value: '5',
-      },
-    ],
-  };
-
+const StatsSection: React.FC<types.StatsSection> = (section) => {
   return (
     <section className="py-8 px-6 md:py-20">
       <div className="xl:container mx-auto flex items-start flex-wrap lg:flex-nowrap">

@@ -16,6 +16,25 @@ sections:
       width: 1920
       height: 1280
       url: /images/sample-image.jpg
-  - type: SpacerSection
-    size: sm
+  - type: StatsSection
+    stats:
+      - type: Stats
+        label: Attendees
+        value: '500'
+      - type: Stats
+        label: Sessions
+        value: '50'
+      - type: Stats
+        label: Day
+        value: '1'
+    content: >-
+      # What you need to know, before you ask
+
+
+      This event brings together experts in Machine Learning, Android, Web and
+      Cloud technologies to a day full of sessions, workshops and showcases.
+
+
+      Our team creates this event to be the best place for experience sharing in
+      a phenomenal atmosphere.
 ---
