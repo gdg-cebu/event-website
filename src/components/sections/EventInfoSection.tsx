@@ -1,43 +1,15 @@
+import { useContext } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import Button from '../common/Button';
+import { EventConfigContext } from '../../contexts/event-config';
 
 import type * as React from 'react';
 import type * as types from 'types';
 
-const EventInfoSection: React.FC = () => {
-  const section: types.EventInfoSection = {
-    logo: {
-      url: '/images/gdg-logo.png',
-      alt: 'Event Logo',
-      width: 800,
-      height: 800,
-    },
-    cta: {
-      url: 'https://arnellebalane.com/',
-      label: 'Register now',
-    },
-    banner: {
-      url: '/images/sample-image.jpg',
-      alt: 'Event Banner',
-      width: 1920,
-      height: 1280,
-    },
-  };
-  const eventConfig: types.EventConfig = {
-    name: 'Event Name',
-    description:
-      'This event brings together developers from around the globe for talks, hands-on learning with Google experts, and a first look at latest developer products.',
-    logo: {
-      url: '/images/default-logo.png',
-      alt: 'Event Logo',
-      width: 130,
-      height: 130,
-    },
-    date: new Date('2022-11-01'),
-    venue: 'Ayala Center Cebu',
-  };
+const EventInfoSection: React.FC<types.EventInfoSection> = (section) => {
+  const eventConfig = useContext(EventConfigContext);
   const data = prepareSectionData(section, eventConfig);
 
   const hasBanner = Boolean(data.banner);
@@ -86,7 +58,7 @@ const renderDetails = ({ date, venue }: types.EventInfoSection): React.ReactNode
     <p className="mt-5 text-lg md:text-xl">
       {date && (
         <time className="inline-block" dateTime={date.toString()}>
-          {format(date, 'MMMM d, yyyy')}
+          {format(new Date(date), 'MMMM d, yyyy')}
         </time>
       )}
       {date && venue && <span className="mx-4">&middot;</span>}

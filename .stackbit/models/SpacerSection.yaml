@@ -1,6 +1,8 @@
 type: object
 name: SpacerSection
 label: Spacer Section
+groups:
+  - sections
 fields:
   - type: enum
     name: size
