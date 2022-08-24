@@ -37,4 +37,14 @@ sections:
 
       Our team creates this event to be the best place for experience sharing in
       a phenomenal atmosphere.
+  - type: GallerySection
+    title: Highlights from the last event
+    description: >-
+      This year's event built lots of excitement. Check out photos from featured
+      talks, hands-on learning sessions, and after-hours fun.
+    cta:
+      type: Link
+      label: See all photos
+      url: /
+    images: []
 ---

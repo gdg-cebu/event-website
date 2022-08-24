@@ -1,21 +1,12 @@
 import Image from 'next/image';
+import cloneDeep from 'lodash/cloneDeep';
 import Button from '../common/Button';
 import styles from './GallerySection.module.css';
 
 import type * as React from 'react';
 import type * as types from 'types';
 
-const GallerySection: React.FC = () => {
-  const section: types.GallerySection = {
-    title: 'Past highlights',
-    description:
-      'Last year we built lots of excitement. Check out photos from featured talks, hands-on learning sessions, and after-hours fun.',
-    cta: {
-      url: 'https://arnellebalane.com/',
-      label: 'See all photos',
-    },
-    images: [],
-  };
+const GallerySection: React.FC<types.GallerySection> = (section) => {
   const data = prepareSectionData(section);
 
   return (
@@ -64,15 +55,16 @@ const renderImages = ({ images }: types.GallerySection): React.ReactNode => {
 };
 
 const prepareSectionData = (section: types.GallerySection): types.GallerySection => {
-  if (section.images?.length ?? 0 > 0) {
+  const data = cloneDeep(section);
+  if ((data.images?.length ?? 0) > 0) {
     let images: types.Image[] = [];
     while (images.length < 9) {
-      images = [...images, ...section.images];
+      images = [...images, ...data.images];
     }
     images = images.slice(0, 9);
-    section.images = images;
+    data.images = images;
   }
-  return section;
+  return data;
 };
 
 export default GallerySection;
