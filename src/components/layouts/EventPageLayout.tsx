@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import BaseLayout from './BaseLayout';
 
 import type * as React from 'react';
 import type * as types from 'types';
@@ -24,7 +25,7 @@ const EventPageLayout: React.FC<React.PropsWithChildren<types.EventPage>> = ({
   };
 
   return (
-    <>
+    <BaseLayout>
       <header className="pt-8 px-6 md:pt-20">
         <div className="xl:container mx-auto">
           {showLogo && renderLogo(eventConfig.logo)}
@@ -34,7 +35,7 @@ const EventPageLayout: React.FC<React.PropsWithChildren<types.EventPage>> = ({
       </header>
 
       {children}
-    </>
+    </BaseLayout>
   );
 };
 

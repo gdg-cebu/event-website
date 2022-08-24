@@ -20,10 +20,16 @@ export interface SourcebitObjectFrontMatter {
 type SourcebitHomePageFrontMatter = SourcebitObjectFrontMatter & types.HomePage;
 type SourcebitEventPageFrontMatter = SourcebitObjectFrontMatter & types.EventPage;
 
-export interface SourcebitObject {
+export interface BaseSourcebitObject {
   __metadata: SourcebitObjectMetaData;
-  frontmatter: SourcebitHomePageFrontMatter | SourcebitEventPageFrontMatter;
 }
+
+type SourcebitObject =
+  | (BaseSourcebitObject & {
+      frontmatter: SourcebitHomePageFrontMatter | SourcebitEventPageFrontMatter;
+    })
+  | (BaseSourcebitObject & types.EventConfig)
+  | (BaseSourcebitObject & types.SiteConfig);
 
 export interface SourcebitData {
   objects: SourcebitObject[];
@@ -32,6 +38,8 @@ export interface SourcebitData {
 
 export type PageProps =
   | {
-      page: SourcebitObject;
+      page?: SourcebitObject;
+      siteConfig: types.SiteConfig;
+      eventConfig: types.EventConfig;
     }
   | Record<string, never>;

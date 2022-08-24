@@ -6,39 +6,13 @@ import NavDrawer from './NavDrawer';
 import type * as React from 'react';
 import type * as types from 'types';
 
-const Header: React.FC = () => {
-  const headerConfig: types.HeaderConfig = {
-    title: 'Event Name',
-    titleImage: {
-      url: '/images/default-logo.png',
-      alt: 'Event Logo',
-      width: 130,
-      height: 130,
-    },
-    titleImageHeight: 64,
-    showTitle: true,
-    navLinks: [
-      {
-        label: 'Home',
-        url: '/',
-      },
-      {
-        label: 'Speakers',
-        url: '/speakers',
-      },
-      {
-        label: 'Schedule',
-        url: '/schedule',
-      },
-    ],
-  };
-
+const Header: React.FC<types.HeaderConfig> = (props) => {
   return (
     <header className="py-4 px-6">
       <div className="xl:container mx-auto flex items-center">
-        {renderTitle(headerConfig)}
-        {renderNav(headerConfig)}
-        {renderDrawer(headerConfig)}
+        {renderTitle(props)}
+        {renderNav(props)}
+        {renderDrawer(props)}
       </div>
     </header>
   );

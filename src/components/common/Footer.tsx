@@ -3,17 +3,13 @@ import Image from 'next/image';
 import type * as React from 'react';
 import type * as types from 'types';
 
-const Footer: React.FC = () => {
-  const footer: types.FooterConfig = {
-    copyright: 'Copyright © 2022. All rights reserved.',
-  };
-
+const Footer: React.FC<types.FooterConfig> = (props) => {
   return (
     <footer className="py-10 px-6 mt-auto bg-gray-100">
       <div className="xl:container mx-auto">
         <div className="flex flex-wrap items-center -mx-4 -my-2">
-          {renderLogo(footer)}
-          {footer.copyright && <p className="mx-4 my-2 text-sm md:text-base">{footer.copyright}</p>}
+          {renderLogo(props)}
+          {props.copyright && <p className="mx-4 my-2 text-sm md:text-base">{props.copyright}</p>}
         </div>
       </div>
     </footer>

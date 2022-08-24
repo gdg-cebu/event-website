@@ -2,13 +2,22 @@ import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 import { getComponent } from '../components/registry';
 import { resolveStaticProps, slugToUrlPath } from '../utils/stackbit';
+import { SiteConfigProvider } from '../contexts/site-config';
+import { EventConfigProvider } from '../contexts/event-config';
 
-const DynamicPage = ({ page }) => {
+const DynamicPage = ({ page, siteConfig, eventConfig }) => {
   const PageComponent = getComponent(page.frontmatter.layout);
   if (!PageComponent) {
     throw new Error(`Unknown layout: ${page.frontmatter.layout}`);
   }
-  return <PageComponent {...page.frontmatter} />;
+
+  return (
+    <SiteConfigProvider value={siteConfig}>
+      <EventConfigProvider value={eventConfig}>
+        <PageComponent {...page.frontmatter} />
+      </EventConfigProvider>
+    </SiteConfigProvider>
+  );
 };
 
 export default withRemoteDataUpdates(DynamicPage);
