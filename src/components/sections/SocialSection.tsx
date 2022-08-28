@@ -20,46 +20,25 @@ const SOCIAL_ICONS: Record<string, Feather.Icon> = {
   website: LinkIcon,
 };
 
-const SocialSection: React.FC = () => {
-  const section: types.SocialSection = {
-    content: '#### Keep in touch with us for the latest announcements about the event.',
-    links: [
-      {
-        label: 'Facebook',
-        url: 'https://www.facebook.com/gdgcebuorg/',
-      },
-      {
-        label: 'Twitter',
-        url: 'https://twitter.com/gdgcebu',
-      },
-      {
-        label: 'Instagram',
-        url: 'https://www.instagram.com/gdgcebu/',
-      },
-      {
-        label: 'Website',
-        url: 'https://gdgcebu.org/',
-      },
-    ],
-    image: {
-      url: '/images/gdg-logo.png',
-      alt: 'Event Logo',
-      width: 800,
-      height: 800,
-    },
-  };
-
+const SocialSection: React.FC<types.SocialSection> = (section) => {
   return (
     <section className="py-8 px-6 md:py-20">
       <div className="xl:container mx-auto flex flex-wrap md:flex-nowrap items-center">
         <div className="w-full md:max-w-lg">
-          <Markdown content={section.content} className="mb-5" />
+          {renderContent(section)}
           {renderLinks(section)}
         </div>
         {renderImage(section)}
       </div>
     </section>
   );
+};
+
+const renderContent = ({ content }: types.SocialSection): React.ReactNode => {
+  if (!content) {
+    return null;
+  }
+  return <Markdown content={content} className="mb-5" />;
 };
 
 const renderLinks = ({ links }: types.SocialSection): React.ReactNode => {
@@ -95,7 +74,7 @@ const renderLinks = ({ links }: types.SocialSection): React.ReactNode => {
 };
 
 const renderImage = ({ image }: types.SocialSection): React.ReactNode => {
-  if (!image) {
+  if (!image?.url) {
     return null;
   }
   const aspectRatio = `${image.width || 16} / ${image.height || 9}`;
@@ -109,14 +88,18 @@ const renderImage = ({ image }: types.SocialSection): React.ReactNode => {
 };
 
 const getSocialIconForUrl = (url: string): React.ReactNode => {
-  const origin = new URL(url).origin;
-  const keys = Object.keys(omit(SOCIAL_ICONS, ['website']));
   let IconComponent = SOCIAL_ICONS.website;
-  for (const key of keys) {
-    if (origin.includes(key)) {
-      IconComponent = SOCIAL_ICONS[key];
-      break;
+  try {
+    const origin = new URL(url).origin;
+    const keys = Object.keys(omit(SOCIAL_ICONS, ['website']));
+    for (const key of keys) {
+      if (origin.includes(key)) {
+        IconComponent = SOCIAL_ICONS[key];
+        break;
+      }
     }
+  } catch (error) {
+    // silenly fail
   }
   return <IconComponent className="w-5 h-5 text-white" />;
 };
