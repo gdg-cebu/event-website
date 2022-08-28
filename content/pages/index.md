@@ -63,6 +63,9 @@ sections:
               height: 300
               url: /images/google-logo.svg
             height: 60
+  - type: SpacerSection
+    size: flex
+  - type: DividerSection
   - type: SocialSection
     content: '#### Keep in touch with us for the latest announcements about the event.'
     links:
