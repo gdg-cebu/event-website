@@ -1,28 +1,14 @@
+import { useContext } from 'react';
 import Image from 'next/image';
 import BaseLayout from './BaseLayout';
+import DynamicSection from '../common/DynamicSection';
+import { EventConfigContext } from '../../contexts/event-config';
 
 import type * as React from 'react';
 import type * as types from 'types';
 
-const EventPageLayout: React.FC<React.PropsWithChildren<types.EventPage>> = ({
-  children,
-  title,
-  subtitle,
-  showLogo = false,
-}) => {
-  const eventConfig: types.EventConfig = {
-    name: 'Event Name',
-    description:
-      'This event brings together developers from around the globe for talks, hands-on learning with Google experts, and a first look at latest developer products.',
-    logo: {
-      url: '/images/default-logo.png',
-      alt: 'Event Logo',
-      width: 130,
-      height: 130,
-    },
-    date: new Date('2022-11-01'),
-    venue: 'Ayala Center Cebu',
-  };
+const EventPageLayout: React.FC<types.EventPage> = ({ title, subtitle, showLogo = false, sections }) => {
+  const eventConfig = useContext(EventConfigContext);
 
   return (
     <BaseLayout>
@@ -34,7 +20,9 @@ const EventPageLayout: React.FC<React.PropsWithChildren<types.EventPage>> = ({
         </div>
       </header>
 
-      {children}
+      {sections.map((section, index) => (
+        <DynamicSection key={index} section={section} />
+      ))}
     </BaseLayout>
   );
 };

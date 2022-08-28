@@ -3,40 +3,7 @@ import Image from 'next/image';
 import type * as React from 'react';
 import type * as types from 'types';
 
-const SpeakersSection: React.FC = () => {
-  const section: types.SpeakersSection = {
-    speakers: [
-      {
-        name: 'Arnelle Balane',
-        designation: 'Software Developer',
-        company: 'Newlogic',
-        bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-        image: {
-          url: '/images/speakers/arnelle-balane.jpg',
-          alt: 'Arnelle Balane',
-          width: 500,
-          height: 500,
-        },
-      },
-      {
-        name: 'Arnelle Balane',
-        designation: 'Software Developer',
-        bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-      },
-      {
-        name: 'Arnelle Balane',
-        company: 'Newlogic',
-        bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-        image: {
-          url: '/images/speakers/arnelle-balane.jpg',
-          alt: 'Arnelle Balane',
-          width: 500,
-          height: 500,
-        },
-      },
-    ],
-  };
-
+const SpeakersSection: React.FC<types.SpeakersSection> = (section) => {
   return (
     <section className="py-8 px-6 md:py-20">
       <div className="xl:container mx-auto">
