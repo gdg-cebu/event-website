@@ -7,161 +7,7 @@ import type * as types from 'types';
 
 const SCHEDULE_ROW_INCREMENT = 5; // minutes
 
-const ScheduleSection: React.FC = () => {
-  const section: types.ScheduleSection = {
-    tracks: [
-      {
-        title: 'Track 1',
-        details: 'Primary Session Hall',
-        sessions: [
-          {
-            title: 'Opening and Introduction',
-            startTime: new Date('2022-08-14T01:00:00.000Z'),
-            endTime: new Date('2022-08-14T01:15:00.000Z'),
-            speakers: [
-              {
-                name: 'Arnelle Balane',
-                designation: 'Software Developer',
-                company: 'Newlogic',
-                bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-                image: {
-                  url: '/images/speakers/arnelle-balane.jpg',
-                  alt: 'Arnelle Balane',
-                  width: 500,
-                  height: 500,
-                },
-              },
-              {
-                name: 'Arnelle Balane',
-                designation: 'Software Developer',
-                company: 'Newlogic',
-                bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-                image: {
-                  url: '/images/speakers/arnelle-balane.jpg',
-                  alt: 'Arnelle Balane',
-                  width: 500,
-                  height: 500,
-                },
-              },
-            ],
-            spanAllTracks: true,
-          },
-          {
-            title: 'Google Developer Keynote',
-            startTime: new Date('2022-08-14T01:15:00.000Z'),
-            endTime: new Date('2022-08-14T01:40:00.000Z'),
-            speakers: [
-              {
-                name: 'Arnelle Balane',
-                designation: 'Software Developer',
-                company: 'Newlogic',
-                bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-                image: {
-                  url: '/images/speakers/arnelle-balane.jpg',
-                  alt: 'Arnelle Balane',
-                  width: 500,
-                  height: 500,
-                },
-              },
-              {
-                name: 'Arnelle Balane',
-                designation: 'Software Developer',
-                company: 'Newlogic',
-                bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-              },
-            ],
-            spanAllTracks: true,
-          },
-          {
-            title: 'Women TechMakers: Lightning Talks',
-            startTime: new Date('2022-08-14T01:40:00.000Z'),
-            endTime: new Date('2022-08-14T02:40:00.000Z'),
-          },
-          {
-            title: 'Firebase and IoT',
-            startTime: new Date('2022-08-14T02:40:00.000Z'),
-            endTime: new Date('2022-08-14T03:10:00.000Z'),
-            speakers: [
-              {
-                name: 'Arnelle Balane',
-                designation: 'Software Developer',
-                company: 'Newlogic',
-                bio: 'Arnelle is a Web developer from Cebu, Philippines who enjoys building things with good old HTML, CSS, JavaScript, and Web Platform APIs. He co-organizes GDG Cebu and is an active volunteer and speaker for other local JavaScript communities. He experiments with cool new Web technologies and writes about them in his blog. When not busy experimenting with new Web APIs, he can also taking photos, playing video games, or practicing his card tricks.',
-                image: {
-                  url: '/images/speakers/arnelle-balane.jpg',
-                  alt: 'Arnelle Balane',
-                  width: 500,
-                  height: 500,
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Track 2',
-        details: 'Secondary Session Hall',
-        sessions: [
-          {
-            title: 'WTF is JAMstack',
-            startTime: new Date('2022-08-14T01:40:00.000Z'),
-            endTime: new Date('2022-08-14T02:10:00.000Z'),
-          },
-          {
-            title: 'Leveling up creativity on the Web with CSS Houdini',
-            startTime: new Date('2022-08-14T02:10:00.000Z'),
-            endTime: new Date('2022-08-14T03:00:00.000Z'),
-          },
-          {
-            title: 'Automating GSuite using Google App Script',
-            startTime: new Date('2022-08-14T03:00:00.000Z'),
-            endTime: new Date('2022-08-14T03:30:00.000Z'),
-          },
-        ],
-      },
-      {
-        title: 'Track 3',
-        sessions: [
-          {
-            title: 'WTF is JAMstack',
-            startTime: new Date('2022-08-14T01:40:00.000Z'),
-            endTime: new Date('2022-08-14T02:10:00.000Z'),
-          },
-          {
-            title: 'Leveling up creativity on the Web with CSS Houdini',
-            startTime: new Date('2022-08-14T02:10:00.000Z'),
-            endTime: new Date('2022-08-14T03:00:00.000Z'),
-          },
-          {
-            title: 'Automating GSuite using Google App Script',
-            startTime: new Date('2022-08-14T03:00:00.000Z'),
-            endTime: new Date('2022-08-14T03:30:00.000Z'),
-          },
-        ],
-      },
-      {
-        title: 'Track 4',
-        sessions: [
-          {
-            title: 'WTF is JAMstack',
-            startTime: new Date('2022-08-14T01:40:00.000Z'),
-            endTime: new Date('2022-08-14T02:10:00.000Z'),
-          },
-          {
-            title: 'Leveling up creativity on the Web with CSS Houdini',
-            startTime: new Date('2022-08-14T02:10:00.000Z'),
-            endTime: new Date('2022-08-14T03:00:00.000Z'),
-          },
-          {
-            title: 'Automating GSuite using Google App Script',
-            startTime: new Date('2022-08-14T03:00:00.000Z'),
-            endTime: new Date('2022-08-14T03:30:00.000Z'),
-          },
-        ],
-      },
-    ],
-  };
-
+const ScheduleSection: React.FC<types.ScheduleSection> = (section) => {
   const style = {
     '--grid-tracks': section.tracks.length,
   } as React.CSSProperties;
@@ -285,20 +131,23 @@ const getIntervalsFromFirstStartTime = (startTime: Date, time: Date): number => 
   return Math.floor(difference / SCHEDULE_ROW_INCREMENT);
 };
 
-const getIntervalsForDuration = (startTime: Date, endTime: Date): number => {
+const getIntervalsForDuration = (startTime: string, endTime: string): number => {
   const difference = getDurationInMinutes(startTime, endTime);
   return Math.floor(difference / SCHEDULE_ROW_INCREMENT);
 };
 
-const getDurationInMinutes = (startTime: Date, endTime: Date): number => {
+const getDurationInMinutes = (startTime: string, endTime: string): number => {
   return differenceInMinutes(normalizeDate(endTime), normalizeDate(startTime));
 };
 
-const getTimeString = (date: Date): string => {
+const getTimeString = (date: Date | string): string => {
+  if (typeof date === 'string') {
+    date = new Date(date);
+  }
   return format(date, 'H:mm aaa');
 };
 
-const normalizeDate = (date: Date): Date => {
+const normalizeDate = (date: Date | string): Date => {
   return new Date(`01-01-1970 ${getTimeString(date)}`);
 };
 

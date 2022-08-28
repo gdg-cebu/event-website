@@ -17,7 +17,7 @@ export interface EventConfig {
   name: string;
   description: string;
   logo: Image;
-  date: Date;
+  date: string;
   venue: string;
 }
 
@@ -42,7 +42,7 @@ export interface SiteConfig {
 export interface EventInfoSection extends Section {
   logo?: Image;
   description?: string;
-  date?: Date;
+  date?: string;
   venue?: string;
   cta?: Link;
   banner?: Image;
@@ -113,8 +113,8 @@ export interface SpeakersSection extends Section {
 
 export interface Session {
   title: string;
-  startTime: Date;
-  endTime: Date;
+  startTime: string;
+  endTime: string;
   speakers?: Speaker[];
   spanAllTracks?: boolean;
 }

@@ -4,14 +4,27 @@ import { defaultSiteConfig } from '../contexts/site-config';
 
 const resolvers = {
   HomePage(object, data) {
-    object.frontmatter.sections = object.frontmatter.sections?.map((section) => resolveReferences(section, data));
+    object.frontmatter.sections = object.frontmatter.sections?.map((section) => resolveObjects(section, data));
     return object;
   },
   EventPage(object, data) {
-    object.frontmatter.sections = object.frontmatter.sections?.map((section) => resolveReferences(section, data));
+    object.frontmatter.sections = object.frontmatter.sections?.map((section) => resolveObjects(section, data));
     return object;
   },
   SpeakersSection(object, data) {
+    object.speakers = object.speakers?.map((speaker) => resolveObjectPath(speaker, data));
+    return object;
+  },
+  ScheduleSection(object, data) {
+    object.tracks = object.tracks?.map((track) => {
+      track.sessions = track.sessions
+        ?.map((session) => resolveObjectPath(session, data))
+        .map((session) => resolveObjects(session, data));
+      return track;
+    });
+    return object;
+  },
+  Session(object, data) {
     object.speakers = object.speakers?.map((speaker) => resolveObjectPath(speaker, data));
     return object;
   },
@@ -25,7 +38,7 @@ export function resolveObjectPath(path, data) {
   return data.objects.find((object) => object.__metadata.relProjectPath === path);
 }
 
-export function resolveReferences(object, data) {
+export function resolveObjects(object, data) {
   if (!object) {
     return null;
   }
@@ -38,7 +51,7 @@ export function resolveReferences(object, data) {
 }
 
 export function resolveStaticProps(urlPath, data) {
-  const page = resolveReferences(
+  const page = resolveObjects(
     data.pages.find((page) => page.__metadata.urlPath === urlPath),
     data
   );
