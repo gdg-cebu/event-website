@@ -10,18 +10,6 @@ fields:
     default: null
     models:
       - Image
-  - type: string
-    name: description
-    label: 'Description (overrides event config description)'
-    default: ''
-  - type: date
-    name: date
-    label: 'Date (overrides event config date)'
-    default: null
-  - type: string
-    name: venue
-    label: 'Venue (overrides event config venue)'
-    default: ''
   - type: model
     name: cta
     label: Call to action

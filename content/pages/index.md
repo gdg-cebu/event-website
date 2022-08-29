@@ -2,7 +2,12 @@
 layout: HomePageLayout
 sections:
   - type: EventInfoSection
-    logo: null
+    logo:
+      type: Image
+      alt: GDG Logo
+      width: 800
+      height: 800
+      url: /images/gdg-logo.png
     description: ''
     date: null
     venue: ''

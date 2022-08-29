@@ -98,9 +98,9 @@ const prepareSectionData = (
 ): types.EventInfoSection => {
   const data = cloneDeep(section);
   data.logo = data.logo || eventConfig.logo;
-  data.description = data.description || eventConfig.description;
-  data.date = data.date || eventConfig.date;
-  data.venue = data.venue || eventConfig.venue;
+  data.description = eventConfig.description;
+  data.date = eventConfig.date;
+  data.venue = eventConfig.venue;
   return data;
 };
 
