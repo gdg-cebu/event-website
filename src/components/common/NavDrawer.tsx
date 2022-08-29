@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import nprogress from 'nprogress';
 import { Menu as MenuIcon } from 'react-feather';
 import Drawer from './Drawer';
 import * as types from '../../../types';
@@ -15,19 +14,9 @@ const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
   const { navLinks } = headerConfig;
 
   useEffect(() => {
-    nprogress.configure({ showSpinner: false });
-    const handleRouteChangeStart = () => {
-      setIsOpen(false);
-      nprogress.start();
-    };
-    const handleRouteChangeComplete = () => nprogress.done();
+    const handleRouteChangeStart = () => setIsOpen(false);
     router.events.on('routeChangeStart', handleRouteChangeStart);
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
+    return () => router.events.off('routeChangeStart', handleRouteChangeStart);
   });
 
   const getActiveClass = (url: string) =>
