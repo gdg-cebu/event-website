@@ -8,7 +8,7 @@ export const defaultEventConfig: types.EventConfig = {
   logo: {
     url: '',
   },
-  date: new Date(),
+  date: '',
   venue: '',
 };
 export const EventConfigContext = createContext(defaultEventConfig);

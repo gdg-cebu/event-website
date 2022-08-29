@@ -2,10 +2,7 @@
   "type": "SiteConfig",
   "header": {
     "type": "HeaderConfig",
-    "title": "Event Name 2022",
-    "titleImage": null,
     "titleImageHeight": 64,
-    "showTitle": true,
     "navLinks": [
       {
         "type": "Link",
@@ -22,7 +19,8 @@
         "label": "Schedule",
         "url": "/schedule"
       }
-    ]
+    ],
+    "titleDisplay": "none"
   },
   "footer": {
     "type": "FooterConfig",

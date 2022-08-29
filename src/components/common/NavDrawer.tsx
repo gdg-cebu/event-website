@@ -5,9 +5,9 @@ import Image from 'next/image';
 import nprogress from 'nprogress';
 import { Menu as MenuIcon } from 'react-feather';
 import Drawer from './Drawer';
+import * as types from '../../../types';
 
 import type * as React from 'react';
-import type * as types from 'types';
 
 const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,14 +62,14 @@ const renderTitle = ({
   title,
   titleImage,
   titleImageHeight = 64,
-  showTitle = true,
+  titleDisplay = types.HeaderTitleDisplay.NONE,
 }: types.HeaderConfig): React.ReactNode => {
-  if (!showTitle) {
+  if (titleDisplay === types.HeaderTitleDisplay.NONE) {
     return null;
   }
   return (
     <Link href="/" passHref>
-      {titleImage ? (
+      {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
         <a
           className="inline-block relative"
           style={{

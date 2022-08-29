@@ -21,11 +21,17 @@ export interface EventConfig {
   venue: string;
 }
 
+export enum HeaderTitleDisplay {
+  NONE = 'none',
+  TITLE = 'title',
+  LOGO = 'logo',
+}
+
 export interface HeaderConfig {
   title?: string;
   titleImage?: Image;
   titleImageHeight?: number;
-  showTitle?: boolean;
+  titleDisplay?: HeaderTitleDisplay;
   navLinks?: Link[];
 }
 

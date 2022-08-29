@@ -1,18 +1,24 @@
+import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import cloneDeep from 'lodash/cloneDeep';
 import Nav from './Nav';
 import NavDrawer from './NavDrawer';
+import { EventConfigContext } from '../../contexts/event-config';
+import * as types from '../../../types';
 
 import type * as React from 'react';
-import type * as types from 'types';
 
-const Header: React.FC<types.HeaderConfig> = (props) => {
+const Header: React.FC<types.HeaderConfig> = (header) => {
+  const eventConfig = useContext(EventConfigContext);
+  const data = prepareHeaderData(header, eventConfig);
+
   return (
     <header className="py-4 px-6">
       <div className="xl:container mx-auto flex items-center">
-        {renderTitle(props)}
-        {renderNav(props)}
-        {renderDrawer(props)}
+        {renderTitle(data)}
+        {renderNav(data)}
+        {renderDrawer(data)}
       </div>
     </header>
   );
@@ -22,14 +28,14 @@ const renderTitle = ({
   title,
   titleImage,
   titleImageHeight = 64,
-  showTitle = true,
+  titleDisplay = types.HeaderTitleDisplay.NONE,
 }: types.HeaderConfig): React.ReactNode => {
-  if (!showTitle) {
+  if (titleDisplay === types.HeaderTitleDisplay.NONE) {
     return null;
   }
   return (
     <Link href="/" passHref>
-      {titleImage ? (
+      {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
         <a
           className="inline-block relative"
           style={{
@@ -71,6 +77,13 @@ const renderDrawer = (headerConfig: types.HeaderConfig): React.ReactNode => {
       <NavDrawer {...headerConfig} />
     </div>
   );
+};
+
+const prepareHeaderData = (header: types.HeaderConfig, eventConfig: types.EventConfig): types.HeaderConfig => {
+  const data = cloneDeep(header);
+  data.title = eventConfig.name;
+  data.titleImage = eventConfig.logo;
+  return data;
 };
 
 export default Header;
