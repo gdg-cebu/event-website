@@ -45,6 +45,21 @@ export interface SiteConfig {
   footer?: FooterConfig;
 }
 
+export interface ThemeStyle {
+  main: string;
+  copy: string;
+  copyAlt: string;
+  primary: string;
+  primaryInteractive: string;
+  onPrimary: string;
+  complementary: string;
+  complementaryInteractive: string;
+  onComplementary: string;
+  complementaryAlt: string;
+  complementaryAltInteractive: string;
+  onComplementaryAlt: string;
+}
+
 export interface EventInfoSection extends Section {
   logo?: Image;
   description?: string;

@@ -8,9 +8,6 @@ sections:
       width: 800
       height: 800
       url: /images/gdg-logo.png
-    description: ''
-    date: null
-    venue: ''
     cta:
       type: Link
       label: Register now

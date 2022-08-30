@@ -1,0 +1,52 @@
+type: data
+name: ThemeStyle
+label: Theme Style
+fields:
+  - type: color
+    name: main
+    label: Site background
+    required: true
+  - type: color
+    name: copy
+    label: Site foreground
+    required: true
+  - type: color
+    name: copyAlt
+    label: Site foreground alt
+    required: true
+  - type: color
+    name: primary
+    label: Primary
+    required: true
+  - type: color
+    name: primaryInteractive
+    label: Primary with interaction
+    required: true
+  - type: color
+    name: onPrimary
+    label: Foreground over primary
+    required: true
+  - type: color
+    name: complementary
+    label: Complementary
+    required: true
+  - type: color
+    name: complementaryInteractive
+    label: Complementary with interaction
+    required: true
+  - type: color
+    name: onComplementary
+    label: Foreground on complementary
+    required: true
+  - type: color
+    name: complementaryAlt
+    label: Complementary alt
+    required: true
+  - type: color
+    name: complementaryAltInteractive
+    label: Complementary alt with interaction
+    required: true
+  - type: color
+    name: onComplementaryAlt
+    label: Foreground on complementary alt
+    required: true

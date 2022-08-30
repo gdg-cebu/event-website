@@ -1,0 +1,15 @@
+{
+  "type": "ThemeStyle",
+  "main": "#ffffff",
+  "copy": "#0f172a",
+  "copyAlt": "#4b5563",
+  "primary": "#1e40af",
+  "primaryInteractive": "#1e3a8a",
+  "onPrimary": "#ffffff",
+  "complementary": "#dbeafe",
+  "complementaryInteractive": "#bfdbfe",
+  "onComplementary": "#1e40af",
+  "complementaryAlt": "#e5e7eb",
+  "complementaryAltInteractive": "#f3f4f6",
+  "onComplementaryAlt": "#0f172a"
+}

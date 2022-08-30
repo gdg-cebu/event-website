@@ -22,3 +22,6 @@ contentModels:
   SiteConfig:
     singleInstance: true
     file: 'site.json'
+  ThemeStyle:
+    singleInstance: true
+    file: 'theme.json'
