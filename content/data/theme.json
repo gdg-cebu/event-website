@@ -2,14 +2,13 @@
   "type": "ThemeStyle",
   "main": "#ffffff",
   "copy": "#0f172a",
-  "copyAlt": "#4b5563",
+  "copyFaded": "#9ca3af",
   "primary": "#1e40af",
-  "primaryInteractive": "#1e3a8a",
+  "primaryInt": "#1e3a8a",
+  "primaryFaded": "#dbeafe",
   "onPrimary": "#ffffff",
-  "complementary": "#dbeafe",
-  "complementaryInteractive": "#bfdbfe",
-  "onComplementary": "#1e40af",
-  "complementaryAlt": "#e5e7eb",
-  "complementaryAltInteractive": "#f3f4f6",
-  "onComplementaryAlt": "#0f172a"
+  "complementary": "#e5e7eb",
+  "complementaryInt": "#d1d5db",
+  "complementaryFaded": "#f3f4f6",
+  "onComplementary": "#1e40af"
 }

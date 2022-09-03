@@ -11,16 +11,20 @@ fields:
     label: Site foreground
     required: true
   - type: color
-    name: copyAlt
-    label: Site foreground alt
+    name: copyFaded
+    label: Site foreground faded
     required: true
   - type: color
     name: primary
     label: Primary
     required: true
   - type: color
-    name: primaryInteractive
+    name: primaryInt
     label: Primary with interaction
+    required: true
+  - type: color
+    name: primaryFaded
+    label: Primary faded
     required: true
   - type: color
     name: onPrimary
@@ -31,22 +35,14 @@ fields:
     label: Complementary
     required: true
   - type: color
-    name: complementaryInteractive
+    name: complementaryInt
     label: Complementary with interaction
+    required: true
+  - type: color
+    name: complementaryFaded
+    label: Complementary faded
     required: true
   - type: color
     name: onComplementary
     label: Foreground on complementary
-    required: true
-  - type: color
-    name: complementaryAlt
-    label: Complementary alt
-    required: true
-  - type: color
-    name: complementaryAltInteractive
-    label: Complementary alt with interaction
-    required: true
-  - type: color
-    name: onComplementaryAlt
-    label: Foreground on complementary alt
     required: true

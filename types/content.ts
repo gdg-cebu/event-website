@@ -48,16 +48,15 @@ export interface SiteConfig {
 export interface ThemeStyle {
   main: string;
   copy: string;
-  copyAlt: string;
+  copyFaded: string;
   primary: string;
-  primaryInteractive: string;
+  primaryInt: string;
+  primaryFaded: string;
   onPrimary: string;
   complementary: string;
-  complementaryInteractive: string;
+  complementaryInt: string;
+  complementaryFaded: string;
   onComplementary: string;
-  complementaryAlt: string;
-  complementaryAltInteractive: string;
-  onComplementaryAlt: string;
 }
 
 export interface EventInfoSection extends Section {
