@@ -9,7 +9,7 @@ export type Props = { links: types.Link[] };
 const Nav: React.FC<Props> = ({ links }) => {
   const { asPath } = useRouter();
   const getActiveClass = (url: string) =>
-    url === asPath ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-100 focus:bg-gray-100';
+    url === asPath ? 'bg-primary-faded text-primary' : 'hover:bg-complementary-faded focus:bg-complementary-faded';
 
   return (
     <>

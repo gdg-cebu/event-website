@@ -16,7 +16,7 @@ const Drawer: React.FC<React.PropsWithChildren<Props>> = ({ children, isOpen, on
       />
       <aside className={`fixed inset-0 z-50 w-full sm:w-96 bg-white transition-transform ${drawerClass}`}>
         <div className="sm:hidden p-4">
-          <button className="block md:hidden w-11 h-11 ml-auto -mr-1 rounded-full hover:bg-gray-100 focus:bg-gray-100">
+          <button className="block md:hidden w-11 h-11 ml-auto -mr-1 rounded-full hover:bg-complementary-faded focus:bg-complementary-faded">
             <XIcon className="w-6 h-6 mx-auto" onClick={() => onClose?.()} />
           </button>
         </div>

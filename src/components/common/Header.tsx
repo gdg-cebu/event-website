@@ -38,6 +38,7 @@ const renderTitle = ({
       {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
         <a
           className="inline-block relative"
+          title={title}
           style={{
             aspectRatio: `${titleImage.width || 16} / ${titleImage.height || 9}`,
             height: `${titleImageHeight}px`,
@@ -52,7 +53,7 @@ const renderTitle = ({
           />
         </a>
       ) : (
-        <a className="inline-block py-2 px-4 -ml-4 rounded text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
+        <a className="inline-block py-2 px-4 -ml-4 rounded text-xl font-medium hover:bg-complementary-faded focus:bg-complementary-faded">
           <h1>{title}</h1>
         </a>
       )}

@@ -20,11 +20,13 @@ const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
   });
 
   const getActiveClass = (url: string) =>
-    url === router.asPath ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-100 focus:bg-gray-100';
+    url === router.asPath
+      ? 'bg-primary-faded text-primary'
+      : 'hover:bg-complementary-faded focus:bg-complementary-faded';
 
   return (
     <>
-      <button className="block md:hidden w-11 h-11 rounded-full hover:bg-gray-100 focus:bg-gray-100">
+      <button className="block md:hidden w-11 h-11 rounded-full hover:bg-complementary-faded focus:bg-complementary-faded">
         <MenuIcon className="w-6 h-6 mx-auto" onClick={() => setIsOpen(true)} />
       </button>
 
