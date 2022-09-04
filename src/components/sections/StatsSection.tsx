@@ -30,7 +30,7 @@ const renderStats = ({ stats }: types.StatsSection): React.ReactNode => {
       {stats.map((stat, index) => (
         <div key={index} className="mr-20 lg:mr-8 mb-8 lg:w-52">
           <p className="text-4xl md:text-5xl">{stat.value}</p>
-          <hr className="block w-16 h-1 border-0 my-2 bg-blue-800" />
+          <hr className="block w-16 h-1 border-0 my-2 bg-primary" />
           <p className="text-base md:text-lg">{stat.label}</p>
         </div>
       ))}

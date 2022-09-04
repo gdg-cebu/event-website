@@ -14,9 +14,9 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({ children, className,
     'text-base',
     'font-medium',
     variant === 'default' &&
-      'border-gray-200 text-blue-800 hover:border-blue-100 hover:bg-blue-50 focus:border-blue-100 focus:bg-blue-50',
+      'border-complemetary text-primary hover:border-primary-faded hover:bg-primary-faded focus:border-primary-faded focus:bg-primary-faded',
     variant === 'primary' &&
-      'border-blue-800 bg-blue-800 text-white hover:bg-blue-900 hover:border-blue-900 focus:bg-blue-900 focus:border-blue-900',
+      'border-primary bg-primary text-on-primary hover:bg-primary-int hover:border-primary-int focus:bg-primary-int focus:border-primary-int',
     className,
   ].join(' ');
 

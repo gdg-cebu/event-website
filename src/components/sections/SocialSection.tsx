@@ -50,19 +50,7 @@ const renderLinks = ({ links }: types.SocialSection): React.ReactNode => {
       {links.map((link, index) => (
         <Link key={index} href={link.url} passHref>
           <a
-            className={[
-              'flex',
-              'items-center',
-              'justify-center',
-              'w-10',
-              'h-10',
-              'm-2',
-              'rounded-full',
-              'font-zero',
-              'bg-blue-800',
-              'hover:bg-blue-900',
-              'focus:bg-blue-900',
-            ].join(' ')}
+            className="flex items-center justify-center w-10 h-10 m-2 rounded-full font-zero bg-primary hover:bg-primary-int focus:bg-primary-int"
             title={link.label}
           >
             {getSocialIconForUrl(link.url)}
@@ -101,7 +89,7 @@ const getSocialIconForUrl = (url: string): React.ReactNode => {
   } catch (error) {
     // silenly fail
   }
-  return <IconComponent className="w-5 h-5 text-white" />;
+  return <IconComponent className="w-5 h-5 text-on-primary" />;
 };
 
 export default SocialSection;

@@ -38,7 +38,7 @@ const renderImages = ({ images }: types.GallerySection): React.ReactNode => {
     return (
       <>
         {new Array(9).fill(0).map((_, index) => (
-          <div key={index} className={`w-full h-full bg-gray-100 ${styles.item}`} />
+          <div key={index} className={`w-full h-full bg-complementary-faded ${styles.item}`} />
         ))}
       </>
     );
@@ -46,7 +46,7 @@ const renderImages = ({ images }: types.GallerySection): React.ReactNode => {
   return (
     <>
       {images.map((image, index) => (
-        <div key={index} className={`w-full h-full bg-gray-100 relative ${styles.item}`}>
+        <div key={index} className={`w-full h-full bg-complementary-faded relative ${styles.item}`}>
           <Image src={image.url} alt={image.alt} layout="fill" objectFit="cover" objectPosition="center center" />
         </div>
       ))}

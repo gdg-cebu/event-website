@@ -48,11 +48,11 @@ const renderSchedule = (schedule: types.ScheduleSection): React.ReactNode => {
         sessions.push(
           <article
             key={`${startTimeString}-${i}`}
-            className="flex flex-col p-6 my-5 xl:my-0 border rounded border-gray-100"
+            className="flex flex-col p-6 my-5 xl:my-0 border rounded border-complementary"
             style={style}
           >
             <h2 className="text-lg md:text-xl">{session.title}</h2>
-            <p className="text-sm">
+            <p className="text-sm text-copy-faded">
               <span className="inline-block">{duration} minutes</span>
               {track.details && (
                 <>
@@ -104,7 +104,7 @@ const renderSpeakers = (session: types.Session): React.ReactNode => {
               />
             </div>
           ) : (
-            <div className="w-6 h-6 mr-2 rounded-full bg-gray-100" />
+            <div className="w-6 h-6 mr-2 rounded-full bg-complementary-faded" />
           )}
           <p className="text-sm">{speaker.name}</p>
         </div>

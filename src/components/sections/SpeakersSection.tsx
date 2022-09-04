@@ -9,10 +9,12 @@ const SpeakersSection: React.FC<types.SpeakersSection> = (section) => {
       <div className="xl:container mx-auto">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {section.speakers.map((speaker, index) => (
-            <article key={index} className="p-6 border border-gray-100 rounded text-center">
+            <article key={index} className="p-6 border border-complementary rounded text-center">
               {renderImage(speaker)}
               {renderDetails(speaker)}
-              {speaker.bio && <p className="mt-auto text-sm md:text-base line-clamp-4">{speaker.bio}</p>}
+              {speaker.bio && (
+                <p className="mt-auto text-sm md:text-base text-copy-faded line-clamp-4">{speaker.bio}</p>
+              )}
             </article>
           ))}
         </div>
@@ -34,7 +36,7 @@ const renderImage = ({ image }: types.Speaker): React.ReactNode => {
           className="rounded-full"
         />
       ) : (
-        <div className="w-full h-full rounded-full bg-gray-100" />
+        <div className="w-full h-full rounded-full bg-complementary-faded" />
       )}
     </div>
   );
@@ -45,7 +47,7 @@ const renderDetails = ({ name, designation, company }: types.Speaker): React.Rea
     <>
       <h2 className="text-lg md:text-xl">{name}</h2>
       {(designation || company) && (
-        <p className="mb-6 text-sm md:text-base">
+        <p className="mb-6 text-sm md:text-base text-copy-faded">
           {designation}
           {designation && company && ', '}
           {company}

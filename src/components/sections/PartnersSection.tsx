@@ -64,7 +64,7 @@ const renderPartner = (partner: types.Partner, index: number): React.ReactNode =
         />
       </div>
     ) : (
-      <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded">
+      <div className="w-full h-full flex items-center justify-center bg-complementary-faded rounded">
         <p>{partner.name}</p>
       </div>
     )
