@@ -39,6 +39,8 @@ sections:
 
       Our team creates this event to be the best place for experience sharing in
       a phenomenal atmosphere.
+  - type: SpacerSection
+    size: sm
   - type: GallerySection
     title: Highlights from the last event
     description: >-
@@ -49,6 +51,8 @@ sections:
       label: See all photos
       url: /
     images: []
+  - type: SpacerSection
+    size: sm
   - type: PartnersSection
     title: Partners
     groups:
@@ -65,6 +69,8 @@ sections:
               height: 300
               url: /images/google-logo.svg
             height: 60
+  - type: SpacerSection
+    size: sm
   - type: SpacerSection
     size: flex
   - type: DividerSection
