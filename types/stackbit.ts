@@ -47,7 +47,3 @@ export type PageProps =
 export interface StackbitAnnotation {
   sb: string;
 }
-
-export interface StackbitEventAnnotation {
-  sbEvent: string;
-}

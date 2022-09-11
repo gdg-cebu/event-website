@@ -4,11 +4,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu as MenuIcon } from 'react-feather';
 import Drawer from './Drawer';
+import { getEventObjectId } from '../../utils/stackbit';
 import * as types from '../../../types';
 
 import type * as React from 'react';
 
-const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
+export type Props = types.HeaderConfig & types.StackbitAnnotation;
+
+const NavDrawer: React.FC<Props> = ({ sb, ...headerConfig }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const { navLinks } = headerConfig;
@@ -35,11 +38,18 @@ const NavDrawer: React.FC<types.HeaderConfig> = ({ ...headerConfig }) => {
           <div className="mb-6">{renderTitle(headerConfig)}</div>
 
           {(navLinks?.length ?? 0) > 0 && (
-            <div>
+            <div data-sb-field-path={sb}>
               {navLinks?.map((link, index) => (
-                <Link key={index} href={link.url} passHref>
-                  <a className={`block py-2 px-4 my-1 rounded ${getActiveClass(link.url)}`}>{link.label}</a>
-                </Link>
+                <span className="block my-1" key={index} data-sb-field-path={`.[${index}]`}>
+                  <Link href={link.url} passHref>
+                    <a
+                      className={`block py-2 px-4 rounded ${getActiveClass(link.url)}`}
+                      data-sb-field-path=".label .url#@href"
+                    >
+                      {link.label}
+                    </a>
+                  </Link>
+                </span>
               ))}
             </div>
           )}
@@ -59,29 +69,33 @@ const renderTitle = ({
     return null;
   }
   return (
-    <Link href="/" passHref>
-      {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
-        <a
-          className="inline-block relative"
-          style={{
-            aspectRatio: `${titleImage.width || 16} / ${titleImage.height || 9}`,
-            height: `${titleImageHeight}px`,
-          }}
-        >
-          <Image
-            src={titleImage.url}
-            alt={titleImage.alt}
-            layout="fill"
-            objectFit="contain"
-            objectPosition="left center"
-          />
-        </a>
-      ) : (
-        <a className="block py-2 px-4 rounded text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
-          <h1>{title}</h1>
-        </a>
-      )}
-    </Link>
+    <span className="inline-block" data-sb-object-id={getEventObjectId()}>
+      <Link href="/" passHref>
+        {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
+          <a
+            className="inline-block relative"
+            style={{
+              aspectRatio: `${titleImage.width || 16} / ${titleImage.height || 9}`,
+              height: `${titleImageHeight}px`,
+            }}
+            data-sb-field-path=".logo"
+          >
+            <Image
+              src={titleImage.url}
+              alt={titleImage.alt}
+              layout="fill"
+              objectFit="contain"
+              objectPosition="left center"
+              data-sb-field-path=".url#@src .alt#@alt"
+            />
+          </a>
+        ) : (
+          <a className="inline-block py-2 px-4 rounded text-xl font-medium hover:bg-gray-100 focus:bg-gray-100">
+            <h1 data-sb-field-path=".name">{title}</h1>
+          </a>
+        )}
+      </Link>
+    </span>
   );
 };
 

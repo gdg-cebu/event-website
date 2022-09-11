@@ -55,9 +55,15 @@ export function resolveStaticProps(urlPath, data) {
     data.pages.find((page) => page.__metadata.urlPath === urlPath),
     data
   );
-  const siteConfig =
-    data.objects.find((object) => object.__metadata.id === 'content/data/site.json') || defaultSiteConfig;
-  const eventConfig =
-    data.objects.find((object) => object.__metadata.id === 'content/data/event.json') || defaultEventConfig;
+  const siteConfig = data.objects.find((object) => object.__metadata.id === getSiteObjectId()) || defaultSiteConfig;
+  const eventConfig = data.objects.find((object) => object.__metadata.id === getEventObjectId()) || defaultEventConfig;
   return { page, siteConfig, eventConfig };
+}
+
+export function getSiteObjectId() {
+  return 'content/data/site.json';
+}
+
+export function getEventObjectId() {
+  return 'content/data/event.json';
 }

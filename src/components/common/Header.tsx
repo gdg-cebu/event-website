@@ -5,12 +5,12 @@ import cloneDeep from 'lodash/cloneDeep';
 import Nav from './Nav';
 import NavDrawer from './NavDrawer';
 import { EventConfigContext } from '../../contexts/event-config';
+import { getEventObjectId } from '../../utils/stackbit';
 import * as types from '../../../types';
 
 import type * as React from 'react';
 
 export type Props = types.HeaderConfig & types.StackbitAnnotation;
-export type HeaderConfigWithEventAnnotation = types.HeaderConfig & types.StackbitEventAnnotation;
 
 const Header: React.FC<Props> = (props) => {
   const eventConfig = useContext(EventConfigContext);
@@ -32,13 +32,12 @@ const renderTitle = ({
   titleImage,
   titleImageHeight = 64,
   titleDisplay = types.HeaderTitleDisplay.NONE,
-  sbEvent,
-}: HeaderConfigWithEventAnnotation): React.ReactNode => {
+}: types.HeaderConfig): React.ReactNode => {
   if (titleDisplay === types.HeaderTitleDisplay.NONE) {
     return null;
   }
   return (
-    <span data-sb-object-id={sbEvent}>
+    <span data-sb-object-id={getEventObjectId()}>
       <Link href="/" passHref>
         {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
           <a
@@ -75,7 +74,7 @@ const renderNav = ({ navLinks }: types.HeaderConfig): React.ReactNode => {
   }
   return (
     <div className="hidden md:block ml-auto -mr-4">
-      <Nav links={navLinks} />
+      <Nav links={navLinks} sb=".navLinks" />
     </div>
   );
 };
@@ -83,17 +82,13 @@ const renderNav = ({ navLinks }: types.HeaderConfig): React.ReactNode => {
 const renderDrawer = (headerConfig: types.HeaderConfig): React.ReactNode => {
   return (
     <div className="md:hidden ml-auto -mr-3">
-      <NavDrawer {...headerConfig} />
+      <NavDrawer {...headerConfig} sb=".navLinks" />
     </div>
   );
 };
 
-const prepareHeaderData = (
-  header: types.HeaderConfig,
-  eventConfig: types.EventConfig
-): HeaderConfigWithEventAnnotation => {
-  const sbEvent = (eventConfig as types.SourcebitObject).__metadata.id;
-  const data = { ...cloneDeep(header), sbEvent };
+const prepareHeaderData = (header: types.HeaderConfig, eventConfig: types.EventConfig): types.HeaderConfig => {
+  const data = cloneDeep(header);
   data.title = eventConfig.name;
   data.titleImage = eventConfig.logo;
   return data;

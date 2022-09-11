@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import { SiteConfigContext } from '../../contexts/site-config';
+import { getSiteObjectId } from '../../utils/stackbit';
 
 import type * as React from 'react';
-import type * as types from 'types';
 
 const BaseLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const siteConfig = useContext(SiteConfigContext);
-  const siteObjectId = (siteConfig as types.SourcebitObject).__metadata.id;
+  const siteObjectId = getSiteObjectId();
   const { header, footer } = siteConfig;
 
   return (
