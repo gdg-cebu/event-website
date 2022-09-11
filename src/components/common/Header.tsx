@@ -9,12 +9,15 @@ import * as types from '../../../types';
 
 import type * as React from 'react';
 
-const Header: React.FC<types.HeaderConfig> = (header) => {
+export type Props = types.HeaderConfig & types.StackbitAnnotation;
+export type HeaderConfigWithEventAnnotation = types.HeaderConfig & types.StackbitEventAnnotation;
+
+const Header: React.FC<Props> = (props) => {
   const eventConfig = useContext(EventConfigContext);
-  const data = prepareHeaderData(header, eventConfig);
+  const data = prepareHeaderData(props, eventConfig);
 
   return (
-    <header className="py-4 px-6">
+    <header className="py-4 px-6" data-sb-field-path={props.sb}>
       <div className="xl:container mx-auto flex items-center">
         {renderTitle(data)}
         {renderNav(data)}
@@ -29,35 +32,40 @@ const renderTitle = ({
   titleImage,
   titleImageHeight = 64,
   titleDisplay = types.HeaderTitleDisplay.NONE,
-}: types.HeaderConfig): React.ReactNode => {
+  sbEvent,
+}: HeaderConfigWithEventAnnotation): React.ReactNode => {
   if (titleDisplay === types.HeaderTitleDisplay.NONE) {
     return null;
   }
   return (
-    <Link href="/" passHref>
-      {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
-        <a
-          className="inline-block relative"
-          title={title}
-          style={{
-            aspectRatio: `${titleImage.width || 16} / ${titleImage.height || 9}`,
-            height: `${titleImageHeight}px`,
-          }}
-        >
-          <Image
-            src={titleImage.url}
-            alt={titleImage.alt}
-            layout="fill"
-            objectFit="contain"
-            objectPosition="left center"
-          />
-        </a>
-      ) : (
-        <a className="inline-block py-2 px-4 -ml-4 rounded text-xl font-medium hover:bg-complementary-faded focus:bg-complementary-faded">
-          <h1>{title}</h1>
-        </a>
-      )}
-    </Link>
+    <span data-sb-object-id={sbEvent}>
+      <Link href="/" passHref>
+        {titleDisplay === types.HeaderTitleDisplay.LOGO && titleImage?.url ? (
+          <a
+            className="inline-block relative"
+            title={title}
+            style={{
+              aspectRatio: `${titleImage.width || 16} / ${titleImage.height || 9}`,
+              height: `${titleImageHeight}px`,
+            }}
+            data-sb-field-path=".logo"
+          >
+            <Image
+              src={titleImage.url}
+              alt={titleImage.alt}
+              layout="fill"
+              objectFit="contain"
+              objectPosition="left center"
+              data-sb-field-path=".url#@src .alt#@alt"
+            />
+          </a>
+        ) : (
+          <a className="inline-block py-2 px-4 -mx-4 rounded text-xl font-medium hover:bg-complementary-faded focus:bg-complementary-faded">
+            <h1 data-sb-field-path=".name">{title}</h1>
+          </a>
+        )}
+      </Link>
+    </span>
   );
 };
 
@@ -80,8 +88,12 @@ const renderDrawer = (headerConfig: types.HeaderConfig): React.ReactNode => {
   );
 };
 
-const prepareHeaderData = (header: types.HeaderConfig, eventConfig: types.EventConfig): types.HeaderConfig => {
-  const data = cloneDeep(header);
+const prepareHeaderData = (
+  header: types.HeaderConfig,
+  eventConfig: types.EventConfig
+): HeaderConfigWithEventAnnotation => {
+  const sbEvent = (eventConfig as types.SourcebitObject).__metadata.id;
+  const data = { ...cloneDeep(header), sbEvent };
   data.title = eventConfig.name;
   data.titleImage = eventConfig.logo;
   return data;

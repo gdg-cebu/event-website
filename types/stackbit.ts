@@ -24,7 +24,7 @@ export interface BaseSourcebitObject {
   __metadata: SourcebitObjectMetaData;
 }
 
-type SourcebitObject =
+export type SourcebitObject =
   | (BaseSourcebitObject & {
       frontmatter: SourcebitHomePageFrontMatter | SourcebitEventPageFrontMatter;
     })
@@ -43,3 +43,11 @@ export type PageProps =
       eventConfig: types.EventConfig;
     }
   | Record<string, never>;
+
+export interface StackbitAnnotation {
+  sb: string;
+}
+
+export interface StackbitEventAnnotation {
+  sbEvent: string;
+}

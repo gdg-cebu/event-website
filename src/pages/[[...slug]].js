@@ -14,7 +14,9 @@ const DynamicPage = ({ page, siteConfig, eventConfig }) => {
   return (
     <SiteConfigProvider value={siteConfig}>
       <EventConfigProvider value={eventConfig}>
-        <PageComponent {...page.frontmatter} />
+        <main className="flex flex-col flex-grow" data-sb-object-id={page.__metadata.id}>
+          <PageComponent {...page.frontmatter} />
+        </main>
       </EventConfigProvider>
     </SiteConfigProvider>
   );

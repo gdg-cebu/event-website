@@ -10,7 +10,7 @@ const HomePageLayout: React.FC<types.HomePage> = ({ sections }) => {
   return (
     <BaseLayout>
       {sections.map((section, index) => (
-        <DynamicSection key={index} section={section} />
+        <DynamicSection key={index} section={section} sb={`sections.[${index}]`} />
       ))}
     </BaseLayout>
   );
