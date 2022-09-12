@@ -15,14 +15,24 @@ const EventPageLayout: React.FC<types.EventPage> = ({ title, subtitle, showLogo 
       <header className="pt-8 px-6 md:pt-20">
         <div className="xl:container mx-auto">
           {showLogo && renderLogo(eventConfig.logo)}
-          <h1 className="text-4xl md:text-5xl font-normal">{title}</h1>
-          {subtitle && <p className="md:max-w-2xl mt-8 text-lg md:text-xl">{subtitle}</p>}
+          <div>
+            <h1 className="inline-block text-4xl md:text-5xl font-normal" data-sb-field-path=".title">
+              {title}
+            </h1>
+          </div>
+          {subtitle && (
+            <p className="md:max-w-2xl mt-8 text-lg md:text-xl" data-sb-field-path=".subtitle">
+              {subtitle}
+            </p>
+          )}
         </div>
       </header>
 
-      {sections.map((section, index) => (
-        <DynamicSection key={index} section={section} />
-      ))}
+      <div className="flex flex-col flex-grow" data-sb-field-path=".sections">
+        {sections.map((section, index) => (
+          <DynamicSection key={index} section={section} sb={`.[${index}]`} />
+        ))}
+      </div>
     </BaseLayout>
   );
 };
@@ -33,7 +43,7 @@ const renderLogo = (logo: types.Image): React.ReactNode => {
   }
   const aspectRatio = `${logo.width || 16} / ${logo.height || 9}`;
   return (
-    <div className="relative h-28 mb-8" style={{ aspectRatio }}>
+    <div className="relative h-28 mb-8" style={{ aspectRatio }} data-sb-field-path=".showLogo">
       <Image src={logo.url} alt={logo.alt} layout="fill" objectFit="contain" objectPosition="center center" />
     </div>
   );
