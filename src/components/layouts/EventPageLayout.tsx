@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import Image from 'next/image';
-import BaseLayout from './BaseLayout';
+import BaseLayout from '../common/BaseLayout';
 import DynamicSection from '../common/DynamicSection';
 import { EventConfigContext } from '../../contexts/event-config';
 

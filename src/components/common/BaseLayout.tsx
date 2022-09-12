@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import { SiteConfigContext } from '../../contexts/site-config';
 import { getSiteObjectId } from '../../utils/stackbit';
 

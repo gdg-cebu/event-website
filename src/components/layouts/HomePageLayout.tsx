@@ -1,4 +1,4 @@
-import BaseLayout from './BaseLayout';
+import BaseLayout from '../common/BaseLayout';
 import DynamicSection from '../common/DynamicSection';
 
 import type * as React from 'react';
