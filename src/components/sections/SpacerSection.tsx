@@ -1,4 +1,6 @@
+import BaseSection from '../common/BaseSection';
 import * as types from '../../../types';
+
 import type * as React from 'react';
 
 const SIZE_CLASSES: Record<types.SpacerSize, string> = {
@@ -8,9 +10,11 @@ const SIZE_CLASSES: Record<types.SpacerSize, string> = {
   [types.SpacerSize.FLEX]: 'flex-grow',
 };
 
-const SpacerSection: React.FC<types.SpacerSection> = ({ size = types.SpacerSize.SMALL }) => {
+export type Props = types.SpacerSection & types.StackbitAnnotation;
+
+const SpacerSection: React.FC<Props> = ({ size = types.SpacerSize.SMALL, sb }) => {
   const className = SIZE_CLASSES[size];
-  return <section className={className} />;
+  return <BaseSection className={className} sb={sb} />;
 };
 
 export default SpacerSection;
