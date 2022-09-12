@@ -1,14 +1,16 @@
-import * as React from 'react';
 import MarkdownToJsx from 'markdown-to-jsx';
 import styles from './Markdown.module.css';
 
-export type Props = { content: string; className?: string };
+import type * as React from 'react';
+import type * as types from 'types';
 
-const Markdown: React.FC<Props> = ({ content, className }) => {
+export type Props = { content: string; className?: string } & types.StackbitAnnotation;
+
+const Markdown: React.FC<Props> = ({ content, className, sb }) => {
   return (
-    <MarkdownToJsx className={[styles.markdown, className].join(' ')} options={{ forceWrapper: true }}>
-      {content}
-    </MarkdownToJsx>
+    <div className={[styles.markdown, className].join(' ')} data-sb-field-path={sb}>
+      <MarkdownToJsx options={{ forceWrapper: true }}>{content}</MarkdownToJsx>
+    </div>
   );
 };
 
