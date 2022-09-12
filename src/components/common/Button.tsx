@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
 import type * as React from 'react';
+import type * as types from 'types';
 
-export type Props = { className?: string; href?: string; variant?: 'default' | 'primary' };
+export type Props = { className?: string; href?: string; variant?: 'default' | 'primary' } & types.StackbitAnnotation;
 
-const Button: React.FC<React.PropsWithChildren<Props>> = ({ children, className, href, variant = 'default' }) => {
+const Button: React.FC<React.PropsWithChildren<Props>> = ({ children, className, href, variant = 'default', sb }) => {
   const classNames = [
     'inline-block',
     'py-3',
@@ -23,7 +24,9 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({ children, className,
   if (href) {
     return (
       <Link href={href} passHref>
-        <a className={classNames}>{children}</a>
+        <a className={classNames} data-sb-field-path={sb}>
+          {children}
+        </a>
       </Link>
     );
   }

@@ -45,5 +45,5 @@ export type PageProps =
   | Record<string, never>;
 
 export interface StackbitAnnotation {
-  sb: string;
+  sb?: string;
 }

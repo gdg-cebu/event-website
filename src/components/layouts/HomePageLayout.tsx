@@ -9,9 +9,11 @@ export type Props = { page: types.HomePage };
 const HomePageLayout: React.FC<types.HomePage> = ({ sections }) => {
   return (
     <BaseLayout>
-      {sections.map((section, index) => (
-        <DynamicSection key={index} section={section} sb={`sections.[${index}]`} />
-      ))}
+      <div className="flex flex-col flex-grow" data-sb-field-path=".sections">
+        {sections.map((section, index) => (
+          <DynamicSection key={index} section={section} sb={`.[${index}]`} />
+        ))}
+      </div>
     </BaseLayout>
   );
 };
