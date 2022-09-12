@@ -29,7 +29,9 @@ export type SourcebitObject =
       frontmatter: SourcebitHomePageFrontMatter | SourcebitEventPageFrontMatter;
     })
   | (BaseSourcebitObject & types.EventConfig)
-  | (BaseSourcebitObject & types.SiteConfig);
+  | (BaseSourcebitObject & types.SiteConfig)
+  | (BaseSourcebitObject & types.Session)
+  | (BaseSourcebitObject & types.Speaker);
 
 export interface SourcebitData {
   objects: SourcebitObject[];

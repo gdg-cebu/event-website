@@ -1,5 +1,6 @@
 import { differenceInMinutes, format } from 'date-fns';
 import Image from 'next/image';
+import BaseSection from '../common/BaseSection';
 import styles from './ScheduleSection.module.css';
 
 import * as React from 'react';
@@ -7,19 +8,21 @@ import type * as types from 'types';
 
 const SCHEDULE_ROW_INCREMENT = 5; // minutes
 
-const ScheduleSection: React.FC<types.ScheduleSection> = (section) => {
+export type Props = types.ScheduleSection & types.StackbitAnnotation;
+
+const ScheduleSection: React.FC<Props> = (section) => {
   const style = {
     '--grid-tracks': section.tracks.length,
   } as React.CSSProperties;
 
   return (
-    <section className="py-8 px-6 md:py-20">
+    <BaseSection className="py-8 px-6 md:py-20" sb={section.sb}>
       <div className="xl:container mx-auto">
         <div className={styles.grid} style={style}>
           {renderSchedule(section)}
         </div>
       </div>
-    </section>
+    </BaseSection>
   );
 };
 
@@ -45,13 +48,19 @@ const renderSchedule = (schedule: types.ScheduleSection): React.ReactNode => {
           gridRow: `${rowStart} / ${rowEnd}`,
         };
         const duration = getDurationInMinutes(session.startTime, session.endTime);
+        const sessionId = (session as types.SourcebitObject).__metadata.id;
         sessions.push(
           <article
             key={`${startTimeString}-${i}`}
             className="flex flex-col p-6 my-5 xl:my-0 border rounded border-complementary"
             style={style}
+            data-sb-object-id={sessionId}
           >
-            <h2 className="text-lg md:text-xl">{session.title}</h2>
+            <div>
+              <h2 className="inline-block text-lg md:text-xl" data-sb-field-path=".title">
+                {session.title}
+              </h2>
+            </div>
             <p className="text-sm text-copy-faded">
               <span className="inline-block">{duration} minutes</span>
               {track.details && (
@@ -89,9 +98,9 @@ const renderSpeakers = (session: types.Session): React.ReactNode => {
     return null;
   }
   return (
-    <div className="mt-auto -mb-2 pt-4">
+    <div className="mt-auto -mb-2 pt-4" data-sb-field-path=".speakers">
       {session.speakers?.map((speaker, index) => (
-        <div key={index} className="flex items-center my-2">
+        <div key={index} className="flex items-center my-2" data-sb-field-path={`.[${index}]`}>
           {speaker.image ? (
             <div className="w-6 h-6 mr-2 relative">
               <Image
