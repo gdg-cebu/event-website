@@ -36,9 +36,9 @@ const SpeakersSection: React.FC<Props> = (section) => {
 const renderImage = (speaker: types.Speaker): React.ReactNode => {
   const { image } = speaker;
   return (
-    <div className="w-28 h-28 mx-auto mb-6 relative">
+    <div className="w-28 h-28 mx-auto mb-6">
       {image ? (
-        <div data-sb-field-path=".image">
+        <div className="w-full h-full relative" data-sb-field-path=".image">
           <Image
             src={image.url}
             alt={image.alt}
