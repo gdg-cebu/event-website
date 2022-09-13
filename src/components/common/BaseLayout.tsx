@@ -5,8 +5,11 @@ import { SiteConfigContext } from '../../contexts/site-config';
 import { getSiteObjectId } from '../../utils/stackbit';
 
 import type * as React from 'react';
+import type * as types from 'types';
 
-const BaseLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+export type Props = React.PropsWithChildren & { seo: types.SEO };
+
+const BaseLayout: React.FC<Props> = ({ children, seo }) => {
   const siteConfig = useContext(SiteConfigContext);
   const siteObjectId = getSiteObjectId();
   const { header, footer } = siteConfig;

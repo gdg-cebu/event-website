@@ -7,11 +7,12 @@ import { EventConfigContext } from '../../contexts/event-config';
 import type * as React from 'react';
 import type * as types from 'types';
 
-const EventPageLayout: React.FC<types.EventPage> = ({ title, subtitle, showLogo = false, sections }) => {
+const EventPageLayout: React.FC<types.EventPage> = (page) => {
+  const { title, subtitle, showLogo = false, sections } = page;
   const eventConfig = useContext(EventConfigContext);
 
   return (
-    <BaseLayout>
+    <BaseLayout seo={page}>
       <header className="pt-8 px-6 md:pt-20">
         <div className="xl:container mx-auto">
           {showLogo && renderLogo(eventConfig.logo)}

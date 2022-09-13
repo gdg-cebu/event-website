@@ -155,6 +155,7 @@ export interface MetaTag {
 }
 
 export interface SEO {
+  title: string;
   seoTitle?: string;
   seoDescription?: string;
   seoUrl?: string;
