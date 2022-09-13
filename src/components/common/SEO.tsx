@@ -37,10 +37,10 @@ const SEO: React.FC<Props> = ({ page }) => {
     <Head>
       <title>{title}</title>
       {nameMetas.map((meta, index) => (
-        <meta key={index} name={meta.property} content={meta.content} />
+        <meta key={`name-${index}`} name={meta.property} content={meta.content} />
       ))}
       {propertyMetas.map((meta, index) => (
-        <meta key={index} property={meta.property} content={meta.content} />
+        <meta key={`property-${index}`} property={meta.property} content={meta.content} />
       ))}
     </Head>
   );
