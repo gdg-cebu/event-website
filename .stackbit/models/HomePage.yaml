@@ -5,6 +5,8 @@ layout: HomePageLayout
 hideContent: true
 urlPath: '/'
 filePath: 'index.md'
+extends:
+  - SEO
 fields:
   - type: string
     name: title

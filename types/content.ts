@@ -149,12 +149,25 @@ export interface ScheduleSection extends Section {
   tracks: ScheduleTrack[];
 }
 
-export interface HomePage {
+export interface MetaTag {
+  property: string;
+  content: string;
+}
+
+export interface SEO {
+  seoTitle?: string;
+  seoDescription?: string;
+  seoUrl?: string;
+  seoImage?: Image;
+  seoTags?: MetaTag[];
+}
+
+export interface HomePage extends SEO {
   title: string;
   sections: Section[];
 }
 
-export interface EventPage {
+export interface EventPage extends SEO {
   title: string;
   subtitle?: string;
   showLogo?: boolean;

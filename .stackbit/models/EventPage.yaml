@@ -5,6 +5,8 @@ layout: EventPageLayout
 hideContent: true
 urlPath: '/{slug}'
 filePath: '{slug}.md'
+extends:
+  - SEO
 fields:
   - type: string
     name: title
