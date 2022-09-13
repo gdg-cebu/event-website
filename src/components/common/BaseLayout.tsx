@@ -8,16 +8,16 @@ import { getSiteObjectId } from '../../utils/stackbit';
 import type * as React from 'react';
 import type * as types from 'types';
 
-export type Props = React.PropsWithChildren & { seo: types.SEO };
+export type Props = React.PropsWithChildren & { page: types.SourcebitPage & types.SEO };
 
-const BaseLayout: React.FC<Props> = ({ children, seo }) => {
+const BaseLayout: React.FC<Props> = ({ children, page }) => {
   const siteConfig = useContext(SiteConfigContext);
   const siteObjectId = getSiteObjectId();
   const { header, footer } = siteConfig;
 
   return (
     <>
-      <SEO seo={seo} />
+      <SEO page={page} />
       {header && (
         <div data-sb-object-id={siteObjectId}>
           <Header {...header} sb=".header" />

@@ -5,28 +5,32 @@ import { EventConfigContext } from '../../contexts/event-config';
 import type * as React from 'react';
 import type * as types from 'types';
 
-export type Props = { seo: types.SEO };
+export type Props = { page: types.SourcebitPage & types.SEO };
 
 const SITE_URL: string = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
-const SEO: React.FC<Props> = ({ seo }) => {
+const SEO: React.FC<Props> = ({ page }) => {
   const eventConfig = useContext(EventConfigContext);
-  const title = seo.seoTitle || `${seo.title} | ${eventConfig.name}`;
+  const title = page.seoTitle || `${page.title} | ${eventConfig.name}`;
   const nameMetas = prepareMetas(
     {
-      description: seo.seoDescription || eventConfig.description,
+      description: page.seoDescription || eventConfig.description,
       'twitter:card': 'summary',
     },
-    seo.seoTags
+    page.seoTags
   );
   const propertyMetas = prepareMetas(
     {
       'og:title': title,
       'og:type': 'website',
-      'og:image': SITE_URL + (seo.seoImage?.url ?? eventConfig.logo.url),
-      'og:url': SITE_URL,
+      'og:image': SITE_URL + (page.seoImage?.url ?? eventConfig.logo.url),
+      'og:url': page.seoUrl
+        ? page.seoUrl.startsWith('http')
+          ? page.seoUrl
+          : SITE_URL + page.seoUrl
+        : SITE_URL + page.__metadata.urlPath,
     },
-    seo.seoTags
+    page.seoTags
   );
 
   return (

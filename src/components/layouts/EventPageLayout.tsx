@@ -12,7 +12,7 @@ const EventPageLayout: React.FC<types.EventPage> = (page) => {
   const eventConfig = useContext(EventConfigContext);
 
   return (
-    <BaseLayout seo={page}>
+    <BaseLayout page={page}>
       <header className="pt-8 px-6 md:pt-20">
         <div className="xl:container mx-auto">
           {showLogo && renderLogo(eventConfig.logo)}
