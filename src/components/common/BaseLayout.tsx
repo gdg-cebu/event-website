@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import SEO from './SEO';
 import { SiteConfigContext } from '../../contexts/site-config';
 import { getSiteObjectId } from '../../utils/stackbit';
 
@@ -16,6 +17,7 @@ const BaseLayout: React.FC<Props> = ({ children, seo }) => {
 
   return (
     <>
+      <SEO seo={seo} />
       {header && (
         <div data-sb-object-id={siteObjectId}>
           <Header {...header} sb=".header" />
