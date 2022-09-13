@@ -15,7 +15,7 @@ const SpeakersSection: React.FC<Props> = (section) => {
             <div key={index} data-sb-field-path={`.[${index}]`}>
               <article
                 className="p-6 border border-complementary rounded text-center"
-                data-sb-object-id={(speaker as types.SourcebitObject).__metadata.id}
+                data-sb-object-id={speaker.__metadata.id}
               >
                 {renderImage(speaker)}
                 {renderDetails(speaker)}

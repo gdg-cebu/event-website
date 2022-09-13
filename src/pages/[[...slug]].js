@@ -6,16 +6,16 @@ import { SiteConfigProvider } from '../contexts/site-config';
 import { EventConfigProvider } from '../contexts/event-config';
 
 const DynamicPage = ({ page, siteConfig, eventConfig }) => {
-  const PageComponent = getComponent(page.frontmatter.layout);
+  const PageComponent = getComponent(page.layout);
   if (!PageComponent) {
-    throw new Error(`Unknown layout: ${page.frontmatter.layout}`);
+    throw new Error(`Unknown layout: ${page.layout}`);
   }
 
   return (
     <SiteConfigProvider value={siteConfig}>
       <EventConfigProvider value={eventConfig}>
         <main className="flex flex-col flex-grow" data-sb-object-id={page.__metadata.id}>
-          <PageComponent {...page.frontmatter} />
+          <PageComponent {...page} />
         </main>
       </EventConfigProvider>
     </SiteConfigProvider>

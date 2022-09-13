@@ -21,7 +21,12 @@ module.exports = {
         liveUpdate: isDev,
         flattenAssetUrls: true,
         pages(objects) {
-          return objects.filter((object) => object.__metadata.sourceName === 'pages');
+          return objects
+            .filter((object) => object.__metadata.sourceName === 'pages')
+            .map((object) => ({
+              ...object.frontmatter,
+              __metadata: object.__metadata,
+            }));
         },
       },
     },

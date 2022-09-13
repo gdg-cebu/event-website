@@ -48,13 +48,12 @@ const renderSchedule = (schedule: types.ScheduleSection): React.ReactNode => {
           gridRow: `${rowStart} / ${rowEnd}`,
         };
         const duration = getDurationInMinutes(session.startTime, session.endTime);
-        const sessionId = (session as types.SourcebitObject).__metadata.id;
         sessions.push(
           <article
             key={`${startTimeString}-${i}`}
             className="flex flex-col p-6 my-5 xl:my-0 border rounded border-complementary"
             style={style}
-            data-sb-object-id={sessionId}
+            data-sb-object-id={session.__metadata.id}
           >
             <div>
               <h2 className="inline-block text-lg md:text-xl" data-sb-field-path=".title">

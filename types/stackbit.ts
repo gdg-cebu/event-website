@@ -13,34 +13,23 @@ export interface SourcebitObjectMetaData {
   urlPath: string;
 }
 
-export interface SourcebitObjectFrontMatter {
-  layout: string;
-}
-
-type SourcebitHomePageFrontMatter = SourcebitObjectFrontMatter & types.HomePage;
-type SourcebitEventPageFrontMatter = SourcebitObjectFrontMatter & types.EventPage;
-
-export interface BaseSourcebitObject {
+export interface SourcebitData {
   __metadata: SourcebitObjectMetaData;
 }
 
-export type SourcebitObject =
-  | (BaseSourcebitObject & {
-      frontmatter: SourcebitHomePageFrontMatter | SourcebitEventPageFrontMatter;
-    })
-  | (BaseSourcebitObject & types.EventConfig)
-  | (BaseSourcebitObject & types.SiteConfig)
-  | (BaseSourcebitObject & types.Session)
-  | (BaseSourcebitObject & types.Speaker);
+export interface SourcebitPage {
+  layout: string;
+  __metadata: SourcebitObjectMetaData;
+}
 
-export interface SourcebitData {
-  objects: SourcebitObject[];
-  pages: SourcebitObject[];
+export interface SourcebitSourceData {
+  objects: SourcebitData[];
+  pages: SourcebitPage[];
 }
 
 export type PageProps =
   | {
-      page?: SourcebitObject;
+      page?: SourcebitPage;
       siteConfig: types.SiteConfig;
       eventConfig: types.EventConfig;
     }

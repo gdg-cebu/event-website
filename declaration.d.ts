@@ -2,10 +2,10 @@ declare module '*.module.css';
 declare module '*.css';
 
 declare module 'sourcebit-target-next' {
-  type SourcebitData = import('./types').SourcebitData;
+  type SourcebitSourceData = import('./types').SourcebitSourceData;
 
   interface SourcebitDataClient {
-    getData: () => Promise<SourcebitData>;
+    getData: () => Promise<SourcebitSourceData>;
   }
 
   export const sourcebitDataClient: SourcebitDataClient;

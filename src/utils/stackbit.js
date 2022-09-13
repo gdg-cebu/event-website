@@ -4,11 +4,11 @@ import { defaultSiteConfig } from '../contexts/site-config';
 
 const resolvers = {
   HomePage(object, data) {
-    object.frontmatter.sections = object.frontmatter.sections?.map((section) => resolveObjects(section, data));
+    object.sections = object.sections?.map((section) => resolveObjects(section, data));
     return object;
   },
   EventPage(object, data) {
-    object.frontmatter.sections = object.frontmatter.sections?.map((section) => resolveObjects(section, data));
+    object.sections = object.sections?.map((section) => resolveObjects(section, data));
     return object;
   },
   SpeakersSection(object, data) {

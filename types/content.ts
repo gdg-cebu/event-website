@@ -1,3 +1,5 @@
+import type * as types from 'types';
+
 /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
 interface Section {}
 
@@ -119,7 +121,7 @@ export interface SocialSection extends Section {
   image?: Image;
 }
 
-export interface Speaker {
+export interface Speaker extends types.SourcebitData {
   name: string;
   designation?: string;
   company?: string;
@@ -131,7 +133,7 @@ export interface SpeakersSection extends Section {
   speakers: Speaker[];
 }
 
-export interface Session {
+export interface Session extends types.SourcebitData {
   title: string;
   startTime: string;
   endTime: string;
@@ -163,12 +165,12 @@ export interface SEO {
   seoTags?: MetaTag[];
 }
 
-export interface HomePage extends SEO {
+export interface HomePage extends SEO, types.SourcebitPage {
   title: string;
   sections: Section[];
 }
 
-export interface EventPage extends SEO {
+export interface EventPage extends SEO, types.SourcebitPage {
   title: string;
   subtitle?: string;
   showLogo?: boolean;
