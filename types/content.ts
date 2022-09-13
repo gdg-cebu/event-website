@@ -150,6 +150,7 @@ export interface ScheduleSection extends Section {
 }
 
 export interface HomePage {
+  title: string;
   sections: Section[];
 }
 

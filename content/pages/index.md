@@ -1,5 +1,6 @@
 ---
 layout: HomePageLayout
+title: Home
 sections:
   - type: EventInfoSection
     logo:
