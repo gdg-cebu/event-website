@@ -25,7 +25,7 @@ export type Props = types.SocialSection & types.StackbitAnnotation;
 
 const SocialSection: React.FC<Props> = (section) => {
   return (
-    <BaseSection className="py-8 px-6 md:py-20" sb={section.sb}>
+    <BaseSection sb={section.sb}>
       <div className="xl:container mx-auto flex flex-wrap md:flex-nowrap items-center">
         <div className="w-full md:max-w-lg">
           {renderContent(section)}

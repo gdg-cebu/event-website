@@ -9,7 +9,7 @@ export type Props = types.PartnersSection & types.StackbitAnnotation;
 
 const PartnersSection: React.FC<Props> = (section) => {
   return (
-    <BaseSection className="py-8 px-6 md:py-20" sb={section.sb}>
+    <BaseSection sb={section.sb}>
       <div className="xl:container mx-auto">
         <div className="mb-10">
           <h1 className="inline-block text-3xl md:text-4xl" data-sb-field-path=".title">

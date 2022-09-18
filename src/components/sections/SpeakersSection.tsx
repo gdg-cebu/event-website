@@ -8,7 +8,7 @@ export type Props = types.SpeakersSection & types.StackbitAnnotation;
 
 const SpeakersSection: React.FC<Props> = (section) => {
   return (
-    <BaseSection className="py-8 px-6 md:py-20" sb={section.sb}>
+    <BaseSection sb={section.sb}>
       <div className="xl:container mx-auto">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-sb-field-path=".speakers">
           {section.speakers.map((speaker, index) => (

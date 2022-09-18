@@ -16,7 +16,7 @@ const ScheduleSection: React.FC<Props> = (section) => {
   } as React.CSSProperties;
 
   return (
-    <BaseSection className="py-8 px-6 md:py-20" sb={section.sb}>
+    <BaseSection sb={section.sb}>
       <div className="xl:container mx-auto">
         <div className={styles.grid} style={style}>
           {renderSchedule(section)}

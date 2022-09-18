@@ -2,11 +2,13 @@
   @apply w-full text-base md:text-lg;
 }
 
-.markdown > *:first-child {
+.markdown > *:first-child,
+.markdown > div > *:first-child {
   @apply mt-0;
 }
 
-.markdown > *:last-child {
+.markdown > *:last-child,
+.markdown > div > *:last-child {
   @apply mb-0;
 }
 
