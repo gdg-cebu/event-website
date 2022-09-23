@@ -24,12 +24,19 @@ git clone https://github.com/gdg-cebu/event-website.git
 cd event-website
 
 npm ci
+npm run prepare
 npm run dev
 # visit the site at http://localhost:3000
 
 # run the stackbit editor, then follow the instructions in the console
 npx stackbit dev
 ```
+
+When contributing to this project,
+
+1. Open an issue in the repository to discuss the change to be introduced
+1. Work on the changes in a separate branch
+1. After finishing the changes, open a pull request to the `main` branch
 
 ## License
 

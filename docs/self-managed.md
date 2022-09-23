@@ -13,6 +13,7 @@ This approach gives us more control over the project repository and hosting of o
    cd your-event-website
 
    npm ci
+   npm run prepare
    npm run dev
    # visit the site at http://localhost:3000
    ```
