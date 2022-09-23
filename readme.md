@@ -4,6 +4,17 @@ Quickly spin up a new Stackbit-enabled website for your next event. Built with [
 
 ![Event Site Preview](preview.png)
 
+## Getting started
+
+There are two ways to use this template for our next event website, please follow the corresponding steps for the preferred approach.
+
+- [Let Stackbit manage the event website (repository, deployments, etc.)](docs/stackbit-managed.md)
+- [We manage the event website (repository, deployments, etc.)](docs/self-managed.md)
+
+For both approaches, we're going to need a Stackbit account, so make sure that we already have one and we're already logged in to our account.
+
+After creating a new project in the Stackbit dashboard, we can then invite other users into the project so they can manage the pages and content of our event website.
+
 ## Contributing
 
 Any contribution to make this project better is welcome! Get started by cloning and running this template locally:
